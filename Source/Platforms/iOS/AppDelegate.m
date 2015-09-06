@@ -26,7 +26,7 @@
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
-#import "CCBuilderReader.h"
+#import "GameScene.h"
 
 @implementation AppController
 
@@ -59,7 +59,7 @@
 
 - (CCScene*) startScene
 {
-    return [CCBReader loadAsScene:@"MainScene"];
+    return [[GameScene alloc] init];
 }
 
 @end
