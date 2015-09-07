@@ -71,6 +71,13 @@
 		92E58BCE1B9CF6EE00F0B51E /* hunter_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BCA1B9CF6EE00F0B51E /* hunter_bottom.png */; };
 		92E58BCF1B9CF6EE00F0B51E /* hunter_top-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BCB1B9CF6EE00F0B51E /* hunter_top-hd.png */; };
 		92E58BD01B9CF6EE00F0B51E /* hunter_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BCC1B9CF6EE00F0B51E /* hunter_top.png */; };
+		92E58BD81B9D206A00F0B51E /* bird_big-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BD21B9D206A00F0B51E /* bird_big-hd.png */; };
+		92E58BD91B9D206A00F0B51E /* bird_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BD31B9D206A00F0B51E /* bird_big.png */; };
+		92E58BDA1B9D206A00F0B51E /* bird_middle-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BD41B9D206A00F0B51E /* bird_middle-hd.png */; };
+		92E58BDB1B9D206A00F0B51E /* bird_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BD51B9D206A00F0B51E /* bird_middle.png */; };
+		92E58BDC1B9D206A00F0B51E /* bird_small-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BD61B9D206A00F0B51E /* bird_small-hd.png */; };
+		92E58BDD1B9D206A00F0B51E /* bird_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BD71B9D206A00F0B51E /* bird_small.png */; };
+		92E58BE01B9D209000F0B51E /* Bird.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E58BDF1B9D209000F0B51E /* Bird.m */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -190,6 +197,14 @@
 		92E58BCA1B9CF6EE00F0B51E /* hunter_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hunter_bottom.png; sourceTree = "<group>"; };
 		92E58BCB1B9CF6EE00F0B51E /* hunter_top-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hunter_top-hd.png"; sourceTree = "<group>"; };
 		92E58BCC1B9CF6EE00F0B51E /* hunter_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hunter_top.png; sourceTree = "<group>"; };
+		92E58BD21B9D206A00F0B51E /* bird_big-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird_big-hd.png"; sourceTree = "<group>"; };
+		92E58BD31B9D206A00F0B51E /* bird_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird_big.png; sourceTree = "<group>"; };
+		92E58BD41B9D206A00F0B51E /* bird_middle-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird_middle-hd.png"; sourceTree = "<group>"; };
+		92E58BD51B9D206A00F0B51E /* bird_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird_middle.png; sourceTree = "<group>"; };
+		92E58BD61B9D206A00F0B51E /* bird_small-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird_small-hd.png"; sourceTree = "<group>"; };
+		92E58BD71B9D206A00F0B51E /* bird_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird_small.png; sourceTree = "<group>"; };
+		92E58BDE1B9D209000F0B51E /* Bird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bird.h; sourceTree = "<group>"; };
+		92E58BDF1B9D209000F0B51E /* Bird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bird.m; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -474,6 +489,8 @@
 			children = (
 				92E58BC51B9CF6B800F0B51E /* Hunter.h */,
 				92E58BC61B9CF6B800F0B51E /* Hunter.m */,
+				92E58BDE1B9D209000F0B51E /* Bird.h */,
+				92E58BDF1B9D209000F0B51E /* Bird.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -487,6 +504,19 @@
 				92E58BCC1B9CF6EE00F0B51E /* hunter_top.png */,
 			);
 			name = Hunter;
+			sourceTree = "<group>";
+		};
+		92E58BD11B9D204D00F0B51E /* Birds */ = {
+			isa = PBXGroup;
+			children = (
+				92E58BD21B9D206A00F0B51E /* bird_big-hd.png */,
+				92E58BD31B9D206A00F0B51E /* bird_big.png */,
+				92E58BD41B9D206A00F0B51E /* bird_middle-hd.png */,
+				92E58BD51B9D206A00F0B51E /* bird_middle.png */,
+				92E58BD61B9D206A00F0B51E /* bird_small-hd.png */,
+				92E58BD71B9D206A00F0B51E /* bird_small.png */,
+			);
+			name = Birds;
 			sourceTree = "<group>";
 		};
 		B737893C1807616C0076A88C /* Source */ = {
@@ -574,6 +604,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92E58BD11B9D204D00F0B51E /* Birds */,
 				92E58BC81B9CF6DE00F0B51E /* Hunter */,
 				92E58BBD1B9CEFC800F0B51E /* Backgrounds */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
@@ -785,6 +816,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E58BDC1B9D206A00F0B51E /* bird_small-hd.png in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				92E58BCD1B9CF6EE00F0B51E /* hunter_bottom-hd.png in Resources */,
@@ -792,15 +824,20 @@
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
 				92E58BCE1B9CF6EE00F0B51E /* hunter_bottom.png in Resources */,
+				92E58BD81B9D206A00F0B51E /* bird_big-hd.png in Resources */,
+				92E58BDA1B9D206A00F0B51E /* bird_middle-hd.png in Resources */,
 				92E58BD01B9CF6EE00F0B51E /* hunter_top.png in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
+				92E58BDB1B9D206A00F0B51E /* bird_middle.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				92E58BCF1B9CF6EE00F0B51E /* hunter_top-hd.png in Resources */,
 				92E58BC31B9CEFF900F0B51E /* game_scene_bg.png in Resources */,
+				92E58BDD1B9D206A00F0B51E /* bird_small.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
+				92E58BD91B9D206A00F0B51E /* bird_big.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
@@ -881,6 +918,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E58BE01B9D209000F0B51E /* Bird.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				92E58BC71B9CF6B800F0B51E /* Hunter.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* GameScene.m in Sources */,

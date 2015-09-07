@@ -1,9 +1,11 @@
 #import "GameScene.h"
 #import "Hunter.h"
+#import "Bird.h"
 
 @interface GameScene()
 
 @property (nonatomic) Hunter *hunter;
+@property (nonatomic) Bird *bird;
 
 @end
 
@@ -13,6 +15,7 @@
     if (self = [super init]) {
         [self addBackground];
         [self addHunter];
+        [self addBird];
     }
     
     return self;
@@ -36,6 +39,13 @@
     
     self.hunter.position = ccp(hunterPositionX, hunterPositionY);
     [self addChild:self.hunter];
+}
+
+-(void)addBird {
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    self.bird = [[Bird alloc] initWithBirdType:BirdTypeSmall];
+    self.bird.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.9f);
+    [self addChild:self.bird];
 }
 
 @end
