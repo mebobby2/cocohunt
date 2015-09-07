@@ -21,6 +21,28 @@
     return self;
 }
 
+-(void)update:(CCTime)delta {
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    
+    if (self.bird.position.x < 0) {
+        self.bird.flipX = YES;
+    }
+    
+    if (self.bird.position.x > viewSize.width) {
+        self.bird.flipX = NO;
+    }
+    
+    float birdSpeed = 50;
+    float distanceToMove = birdSpeed * delta;
+    
+    float direction = self.bird.flipX ? 1 : -1;
+    
+    float newX = self.bird.position.x + direction * distanceToMove;
+    float newY = self.bird.position.y;
+    
+    self.bird.position = ccp(newX, newY);
+}
+
 -(void)addBackground {
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     CCSprite *background = [CCSprite spriteWithImageNamed:@"game_scene_bg.png"];
