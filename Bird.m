@@ -31,8 +31,45 @@
     
     if (self = [super initWithImageNamed:birdImageName]) {
         self.birdType = typeOfBird;
+        [self animateFly];
     }
     return self;
+}
+
+-(void)animateFly {
+    NSString* animFrameNameFormat;
+    
+    switch (self.birdType) {
+        case BirdTypeBig:
+            animFrameNameFormat = @"bird_big_%d.png";
+            break;
+        case BirdTypeMedium:
+            animFrameNameFormat = @"bird_middle_%d.png";
+            break;
+        case BirdTypeSmall:
+            animFrameNameFormat = @"bird_small_%d.png";
+        default:
+            CCLOG(@"Unknown bird type, using small bird anim.!");
+            animFrameNameFormat = @"bird_small_%d.png";
+            break;
+    }
+    
+    NSMutableArray *animFrames = [NSMutableArray arrayWithCapacity:7];
+    for (int i = 0; i < 7; i++) {
+        NSString *currentFrameName = [NSString stringWithFormat:animFrameNameFormat, i];
+        
+        CCSpriteFrame *animationFrame = [CCSpriteFrame frameWithImageNamed:currentFrameName];
+        
+        [animFrames addObject:animationFrame];
+    }
+    
+    CCAnimation* flyAnimation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
+    
+    CCActionAnimate *flyAnimateAction = [CCActionAnimate actionWithAnimation:flyAnimation];
+    
+    CCActionRepeatForever *flyForever = [CCActionRepeatForever actionWithAction:flyAnimateAction];
+    
+    [self runAction:flyForever];
 }
 
 @end
