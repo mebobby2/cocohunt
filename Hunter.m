@@ -21,7 +21,7 @@
         self.torso = [CCSprite spriteWithImageNamed:@"hunter_top.png"];
         self.torso.anchorPoint = ccp(0.5f, 10.0f/44.0f);
         self.torso.position = ccp(self.boundingBox.size.width / 2.0f, self.boundingBox.size.height);
-        [self addChild:self.torso];
+        [self addChild:self.torso z:-1];
     }
     
     return self;
