@@ -13,6 +13,7 @@
 
 -(instancetype)init {
     if (self = [super init]) {
+        self.userInteractionEnabled = YES;
         [self addBackground];
         [self loadSpriteSheet];
         [self addHunter];
@@ -46,6 +47,20 @@
     float newY = self.bird.position.y;
     
     self.bird.position = ccp(newX, newY);
+}
+
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    CGPoint touchLocation = [touch locationInNode:self];
+    [self.hunter aimAtPoint:touchLocation];
+}
+
+-(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    CGPoint touchLocation = [touch locationInNode:self];
+    [self.hunter aimAtPoint:touchLocation];
+}
+
+-(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    CCLOG(@"finger up at : (%f, %f)", touch.locationInWorld.x, touch.locationInWorld.y);
 }
 
 -(void)addBackground {

@@ -27,5 +27,26 @@
     return self;
 }
 
+-(CGPoint)torsoCenterInWorldCoordinates {
+    CGPoint torsoCenterLocal = ccp(self.torso.contentSize.width / 2.0f, self.torso.contentSize.height / 2.0f);
+    CGPoint torsoCenterWorld = [self.torso convertToWorldSpace:torsoCenterLocal];
+    return torsoCenterWorld;
+}
+
+-(float)calculateTorsoRotationToLookAtPoint:(CGPoint)targetPoint {
+    CGPoint torsoCenterWorld = [self torsoCenterInWorldCoordinates];
+    CGPoint pointStraightAhead = ccp(torsoCenterWorld.x + 1.0f, torsoCenterWorld.y);
+    CGPoint forwardVector = ccpSub(pointStraightAhead, torsoCenterWorld);
+    CGPoint targetVector = ccpSub(targetPoint, torsoCenterWorld);
+    float angleRadians = ccpAngleSigned(forwardVector, targetVector);
+    float angleDegrees = -1 * CC_RADIANS_TO_DEGREES(angleRadians);
+    angleDegrees = clampf(angleDegrees, -60, 25);
+    return angleDegrees;
+}
+
+-(void)aimAtPoint:(CGPoint)point {
+    self.torso.rotation = [self calculateTorsoRotationToLookAtPoint:point];
+}
+
 
 @end

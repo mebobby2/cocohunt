@@ -54,7 +54,7 @@
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
-    //[CCDirector sharedDirector].displayStats = YES;
+    [CCDirector sharedDirector].displayStats = YES;
     
     return YES;
 }
