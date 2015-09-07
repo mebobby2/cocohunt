@@ -15,17 +15,17 @@
     
     switch (typeOfBird) {
         case BirdTypeBig:
-            birdImageName = @"bird_big.png";
+            birdImageName = @"bird_big_0.png";
             break;
         case BirdTypeMedium:
-            birdImageName = @"bird_middle.png";
+            birdImageName = @"bird_middle_0.png";
             break;
         case BirdTypeSmall:
-            birdImageName = @"bird_small.png";
+            birdImageName = @"bird_small_0.png";
             break;
         default:
             CCLOG(@"Unknown bird type, using small bird!");
-            birdImageName = @"bird_small.png";
+            birdImageName = @"bird_small_0.png";
             break;
     }
     

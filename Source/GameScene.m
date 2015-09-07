@@ -14,11 +14,16 @@
 -(instancetype)init {
     if (self = [super init]) {
         [self addBackground];
+        [self loadSpriteSheet];
         [self addHunter];
         [self addBird];
     }
     
     return self;
+}
+
+-(void)loadSpriteSheet {
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Cocohunt.plist"];
 }
 
 -(void)update:(CCTime)delta {
