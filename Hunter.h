@@ -21,5 +21,7 @@ typedef enum HunterState{
 -(void)aimAtPoint:(CGPoint)point;
 -(CCSprite*)shootAtPoint:(CGPoint)point;
 -(void)getReadyToShootAgain;
+-(CGPoint)torsoCenterInWorldCoordinates;
+-(float)torsoRotation;
 
 @end

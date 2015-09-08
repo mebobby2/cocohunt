@@ -10,6 +10,8 @@
 @property NSMutableArray *arrows;
 @property int birdsToSpawn;
 @property int birdsToLose;
+@property int maxAimingRadius;
+@property CCSprite* aimingIndicator;
 
 @end
 
@@ -27,6 +29,7 @@
         self.gameState = GameStateUninitialized;
         self.birdsToSpawn = 20;
         self.birdsToLose = 3;
+        [self setupAimingIndicator];
     }
     
     return self;
@@ -39,6 +42,17 @@
 
 -(void)loadSpriteSheet {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Cocohunt.plist"];
+}
+
+-(void)setupAimingIndicator {
+    self.maxAimingRadius = 100;
+    
+    self.aimingIndicator = [CCSprite spriteWithImageNamed:@"power_meter.png"];
+    self.aimingIndicator.opacity = 0.3f;
+    self.aimingIndicator.anchorPoint = ccp(0, 0.5f);
+    self.aimingIndicator.visible = NO;
+    
+    [self addChild:self.aimingIndicator];
 }
 
 -(void)update:(CCTime)delta {
@@ -160,11 +174,14 @@
     
     CGPoint touchLocation = [touch locationInNode:self];
     [self.hunter aimAtPoint:touchLocation];
+    self.aimingIndicator.visible = YES;
+    [self checkAimingIndicatorForPoint:touchLocation];
 }
 
 -(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     CGPoint touchLocation = [touch locationInNode:self];
     [self.hunter aimAtPoint:touchLocation];
+    [self checkAimingIndicatorForPoint:touchLocation];
 }
 
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
@@ -172,8 +189,15 @@
         return;
     
     CGPoint touchLocation = [touch locationInNode:self];
-    CCSprite *arrow = [self.hunter shootAtPoint:touchLocation];
-    [self.arrows addObject:arrow];
+    
+    BOOL canShoot = [self checkAimingIndicatorForPoint:touchLocation];
+    if (canShoot) {
+        CCSprite *arrow = [self.hunter shootAtPoint:touchLocation];
+        [self.arrows addObject:arrow];
+    } else {
+        [self.hunter getReadyToShootAgain];
+    }
+    self.aimingIndicator.visible = NO;
 }
 
 -(void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
@@ -198,6 +222,21 @@
     
     self.hunter.position = ccp(hunterPositionX, hunterPositionY);
     [self addChild:self.hunter];
+}
+
+-(BOOL)checkAimingIndicatorForPoint:(CGPoint)point {
+    self.aimingIndicator.position = [self.hunter torsoCenterInWorldCoordinates];
+    self.aimingIndicator.rotation = [self.hunter torsoRotation];
+    
+    float distance = ccpDistance(self.aimingIndicator.position, point);
+    BOOL isInRange = distance < self.maxAimingRadius;
+    
+    float scale = distance/self.aimingIndicator.contentSize.width;
+    self.aimingIndicator.scale = scale;
+    
+    self.aimingIndicator.color = isInRange ? [CCColor greenColor] : [CCColor redColor];
+    
+    return isInRange;
 }
 
 @end

@@ -34,6 +34,10 @@
     return torsoCenterWorld;
 }
 
+-(float)torsoRotation {
+    return self.torso.rotation;
+}
+
 -(float)calculateTorsoRotationToLookAtPoint:(CGPoint)targetPoint {
     CGPoint torsoCenterWorld = [self torsoCenterInWorldCoordinates];
     CGPoint pointStraightAhead = ccp(torsoCenterWorld.x + 1.0f, torsoCenterWorld.y);
