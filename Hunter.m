@@ -50,6 +50,9 @@
 }
 
 -(void)aimAtPoint:(CGPoint)point {
+    if (self.hunterState != HunterStateReloading)
+        self.hunterState = HunterStateAiming;
+    
     self.torso.rotation = [self calculateTorsoRotationToLookAtPoint:point];
 }
 

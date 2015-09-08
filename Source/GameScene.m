@@ -1,6 +1,7 @@
 #import "GameScene.h"
 #import "Hunter.h"
 #import "Bird.h"
+@import CoreMotion;
 
 @interface GameScene()
 
@@ -13,19 +14,22 @@
 @property int maxAimingRadius;
 @property CCSprite* aimingIndicator;
 
+@property BOOL useGyroToAim;
+@property CMMotionManager *motionManager;
+
 @end
 
 @implementation GameScene
 
 -(instancetype)init {
     if (self = [super init]) {
+        self.useGyroToAim = YES;
         [self loadSpriteSheet];
         [self addBackground];
         [self addHunter];
         self.timeUntilNextBird = 0;
         self.birds = [NSMutableArray array];
         self.arrows = [NSMutableArray array];
-        self.userInteractionEnabled = YES;
         self.gameState = GameStateUninitialized;
         self.birdsToSpawn = 20;
         self.birdsToLose = 3;
@@ -35,9 +39,45 @@
     return self;
 }
 
+-(void)initializeControls {
+    if (self.useGyroToAim) {
+        self.motionManager = [[CMMotionManager alloc] init];
+        self.motionManager.deviceMotionUpdateInterval = 1.0/60;
+        [self.motionManager startDeviceMotionUpdates];
+    }
+    self.userInteractionEnabled = YES;
+}
+
+-(CGPoint)getGyroTargetPoint {
+    CMDeviceMotion *motion = self.motionManager.deviceMotion;
+    CMAttitude *attitude = motion.attitude;
+    
+    float pitch = attitude.pitch;
+    float roll = attitude.roll;
+    
+    if (roll > 0)
+        pitch = -1 * pitch;
+    
+    CCLOG(@"Pitch: %F", pitch);
+    
+    CGPoint forward = ccp(1.0, 0);
+    CGPoint rot = ccpRotateByAngle(forward, CGPointZero, pitch);
+    CGPoint targetPoint = ccpAdd([self.hunter torsoCenterInWorldCoordinates], rot);
+    return targetPoint;
+}
+
+-(void)updateGyroAim {
+    if (!self.useGyroToAim)
+        return;
+    
+    CGPoint targetPoint = [self getGyroTargetPoint];
+    [self.hunter aimAtPoint:targetPoint];
+}
+
 -(void)onEnter {
     [super onEnter];
     self.gameState = GameStatePlaying;
+    [self initializeControls];
 }
 
 -(void)loadSpriteSheet {
@@ -58,6 +98,8 @@
 -(void)update:(CCTime)delta {
     if (self.gameState != GameStatePlaying)
         return;
+    
+    [self updateGyroAim];
     
     self.timeUntilNextBird -= delta;
     
@@ -163,7 +205,7 @@
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    if (self.hunter.hunterState != HunterStateIdle || self.gameState != GameStatePlaying) {
+    if (self.gameState != GameStatePlaying) {
         //By calling the super method, it tells cocos2d to pass it to the
         //underlying node because we do not want to process this particular
         //touch. Consequently, the touchMoved and touchEnded methods will
@@ -172,10 +214,25 @@
         return;
     }
     
-    CGPoint touchLocation = [touch locationInNode:self];
-    [self.hunter aimAtPoint:touchLocation];
-    self.aimingIndicator.visible = YES;
-    [self checkAimingIndicatorForPoint:touchLocation];
+    if (self.useGyroToAim) {
+        if (self.hunter.hunterState != HunterStateReloading) {
+            CGPoint targetPoint = [self getGyroTargetPoint];
+            CCSprite* arrow = [self.hunter shootAtPoint:targetPoint];
+            [self.arrows addObject:arrow];
+        }
+        [super touchBegan:touch withEvent:event];
+    } else {
+        if (self.hunter.hunterState != HunterStateIdle) {
+            [super touchBegan:touch withEvent:event];
+            return;
+        }
+        
+        CGPoint touchLocation = [touch locationInNode:self];
+        [self.hunter aimAtPoint:touchLocation];
+        
+        self.aimingIndicator.visible = YES;
+        [self checkAimingIndicatorForPoint:touchLocation];
+    }
 }
 
 -(void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
