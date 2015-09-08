@@ -22,6 +22,7 @@
         self.torso.anchorPoint = ccp(0.5f, 10.0f/44.0f);
         self.torso.position = ccp(self.boundingBox.size.width / 2.0f, self.boundingBox.size.height);
         [self addChild:self.torso z:-1];
+        self.hunterState = HunterStateIdle;
     }
     
     return self;
@@ -70,9 +71,39 @@
     CCActionMoveBy *moveAction = [CCActionMoveBy actionWithDuration:2.0f position:arrowMovementVector];
     [arrow runAction:moveAction];
     
+    [self reloadArrow];
+    
     return arrow;
+}
+
+-(void)reloadArrow {
+    self.hunterState = HunterStateReloading;
     
+    NSString *frameNameFormat = @"hunter_top_%d.png";
+    NSMutableArray *frames = [NSMutableArray array];
     
+    for (int i = 0; i < 6; i++) {
+        NSString * frameName = [NSString stringWithFormat:frameNameFormat, i];
+        CCSpriteFrame * frame = [CCSpriteFrame frameWithImageNamed:frameName];
+        [frames addObject:frame];
+    }
+    
+    CCAnimation *reloadAnimation = [CCAnimation animationWithSpriteFrames:frames delay:0.05f];
+    
+    reloadAnimation.restoreOriginalFrame = YES;
+    CCActionAnimate *reloadAnimAction = [CCActionAnimate actionWithAnimation:reloadAnimation];
+    
+    CCActionCallFunc *readyToShootAgain = [CCActionCallFunc actionWithTarget:self selector:@selector(getReadyToShootAgain)];
+    
+    CCActionDelay *delay = [CCActionDelay actionWithDuration:0.25f];
+    
+    CCActionSequence *reloadAndGetReady = [CCActionSequence actions:reloadAnimAction, delay, readyToShootAgain, nil];
+    
+    [self.torso runAction:reloadAndGetReady];
+}
+
+-(void)getReadyToShootAgain {
+    self.hunterState = HunterStateIdle;
 }
 
 

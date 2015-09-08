@@ -114,6 +114,15 @@
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    if (self.hunter.hunterState != HunterStateIdle) {
+        //By calling the super method, it tells cocos2d to pass it to the
+        //underlying node because we do not want to process this particular
+        //touch. Consequently, the touchMoved and touchEnded methods will
+        //NOT be called for this particular touch as well.
+        [super touchBegan:touch withEvent:event];
+        return;
+    }
+    
     CGPoint touchLocation = [touch locationInNode:self];
     [self.hunter aimAtPoint:touchLocation];
 }
@@ -127,6 +136,10 @@
     CGPoint touchLocation = [touch locationInNode:self];
     CCSprite *arrow = [self.hunter shootAtPoint:touchLocation];
     [self.arrows addObject:arrow];
+}
+
+-(void)touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    [self.hunter getReadyToShootAgain];
 }
 
 -(void)addBackground {
