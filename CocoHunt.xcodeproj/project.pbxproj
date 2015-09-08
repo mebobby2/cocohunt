@@ -1187,7 +1187,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = CocoHunt;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "707d12d0-529b-401b-87fd-9866bdce3dbb";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
@@ -1220,7 +1220,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = CocoHunt;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "707d12d0-529b-401b-87fd-9866bdce3dbb";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
