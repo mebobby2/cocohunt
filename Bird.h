@@ -18,5 +18,6 @@ typedef enum BirdType {
 
 @property (nonatomic, assign) BirdType birdType;
 -(instancetype)initWithBirdType:(BirdType)typeOfBird;
+-(void)removeBird:(BOOL)hitByArrow;
 
 @end

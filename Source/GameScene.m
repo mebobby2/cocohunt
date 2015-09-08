@@ -4,9 +4,10 @@
 
 @interface GameScene()
 
-@property (nonatomic) Hunter *hunter;
-@property (nonatomic) float timeUntilNextBird;
-@property (nonatomic) NSMutableArray *birds;
+@property Hunter *hunter;
+@property float timeUntilNextBird;
+@property NSMutableArray *birds;
+@property NSMutableArray *arrows;
 
 @end
 
@@ -19,6 +20,7 @@
         [self addHunter];
         self.timeUntilNextBird = 0;
         self.birds = [NSMutableArray array];
+        self.arrows = [NSMutableArray array];
         self.userInteractionEnabled = YES;
     }
     
@@ -39,6 +41,40 @@
         int nextBirdTimeMin = 2;
         int nextBirdTime = nextBirdTimeMin + arc4random_uniform(nextBirdTimeMax - nextBirdTimeMin);
         self.timeUntilNextBird = nextBirdTime;
+    }
+    
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    CGRect viewBounds = CGRectMake(0, 0, viewSize.width, viewSize.height);
+    
+    //We iterate the array backgrounds as we might need to remove the birds from the array as we go, which will change the size of the array
+    for (int i = self.birds.count - 1; i >= 0; i --) {
+        Bird * bird = self.birds[i];
+        BOOL birdFlewOffScreen = (bird.position.x + (bird.contentSize.width * 0.5f)) > viewSize.width;
+        
+        if (bird.flipX == YES && birdFlewOffScreen) {
+            [self.birds removeObject:bird];
+            [bird removeBird:NO];
+            continue;
+        }
+        
+        for (int j = self.arrows.count - 1; j >= 0; j--) {
+            CCSprite* arrow = self.arrows[j];
+            if (!CGRectContainsPoint(viewBounds, arrow.position)) {
+                [arrow removeFromParentAndCleanup:YES];
+                [self.arrows removeObject:arrow];
+                continue;
+            }
+            
+            if (CGRectIntersectsRect(arrow.boundingBox, bird.boundingBox)) {
+                [arrow removeFromParentAndCleanup:YES];
+                [self.arrows removeObject:arrow];
+                
+                [self.birds removeObject:bird];
+                [bird removeBird:YES];
+                
+                break;
+            }
+        }
     }
 }
 
@@ -87,7 +123,8 @@
 
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     CGPoint touchLocation = [touch locationInNode:self];
-    [self.hunter shootAtPoint:touchLocation];
+    CCSprite *arrow = [self.hunter shootAtPoint:touchLocation];
+    [self.arrows addObject:arrow];
 }
 
 -(void)addBackground {

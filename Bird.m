@@ -72,4 +72,13 @@
     [self runAction:flyForever];
 }
 
+-(void)removeBird:(BOOL)hitByArrow {
+    if (hitByArrow) {
+        CCLOG(@"Bird hit by arrow");
+    } else {
+        CCLOG(@"Bird flew away");
+    }
+    [self removeFromParentAndCleanup:YES];
+}
+
 @end
