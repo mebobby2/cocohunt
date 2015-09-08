@@ -8,6 +8,8 @@
 @property float timeUntilNextBird;
 @property NSMutableArray *birds;
 @property NSMutableArray *arrows;
+@property int birdsToSpawn;
+@property int birdsToLose;
 
 @end
 
@@ -22,9 +24,17 @@
         self.birds = [NSMutableArray array];
         self.arrows = [NSMutableArray array];
         self.userInteractionEnabled = YES;
+        self.gameState = GameStateUninitialized;
+        self.birdsToSpawn = 20;
+        self.birdsToLose = 3;
     }
     
     return self;
+}
+
+-(void)onEnter {
+    [super onEnter];
+    self.gameState = GameStatePlaying;
 }
 
 -(void)loadSpriteSheet {
@@ -32,10 +42,14 @@
 }
 
 -(void)update:(CCTime)delta {
+    if (self.gameState != GameStatePlaying)
+        return;
+    
     self.timeUntilNextBird -= delta;
     
-    if (self.timeUntilNextBird <= 0) {
+    if (self.timeUntilNextBird <= 0 && self.birdsToSpawn > 0) {
         [self spawnBird];
+        self.birdsToSpawn--;
         
         int nextBirdTimeMax = 5;
         int nextBirdTimeMin = 2;
@@ -54,6 +68,7 @@
         if (bird.birdState == BirdStateFlyingOut && birdFlewOffScreen) {
             [self.birds removeObject:bird];
             [bird removeBird:NO];
+            self.birdsToLose--;
             continue;
         }
         
@@ -75,7 +90,27 @@
                 break;
             }
         }
+        
+        [self checkWonLost];
     }
+}
+
+-(void)checkWonLost {
+    if (self.birdsToLose <= 0) {
+        [self lost];
+    } else if (self.birdsToSpawn <= 0 && self.birds.count <= 0) {
+        [self won];
+    }
+}
+
+-(void)lost {
+    self.gameState = GameStateLost;
+    CCLOG(@"YOU LOST!");
+}
+
+-(void)won {
+    self.gameState = GameStateWon;
+    CCLOG(@"YOU WON!");
 }
 
 -(void)spawnBird {
@@ -114,7 +149,7 @@
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    if (self.hunter.hunterState != HunterStateIdle) {
+    if (self.hunter.hunterState != HunterStateIdle || self.gameState != GameStatePlaying) {
         //By calling the super method, it tells cocos2d to pass it to the
         //underlying node because we do not want to process this particular
         //touch. Consequently, the touchMoved and touchEnded methods will
@@ -133,6 +168,9 @@
 }
 
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    if (self.gameState != GameStatePlaying)
+        return;
+    
     CGPoint touchLocation = [touch locationInNode:self];
     CCSprite *arrow = [self.hunter shootAtPoint:touchLocation];
     [self.arrows addObject:arrow];
