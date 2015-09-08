@@ -23,7 +23,7 @@
 
 -(instancetype)init {
     if (self = [super init]) {
-        self.useGyroToAim = YES;
+        self.useGyroToAim = NO;
         [self loadSpriteSheet];
         [self addBackground];
         [self addHunter];
