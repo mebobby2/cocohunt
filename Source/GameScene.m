@@ -60,7 +60,8 @@
 }
 
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    CCLOG(@"finger up at : (%f, %f)", touch.locationInWorld.x, touch.locationInWorld.y);
+    CGPoint touchLocation = [touch locationInNode:self];
+    [self.hunter shootAtPoint:touchLocation];
 }
 
 -(void)addBackground {

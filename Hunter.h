@@ -11,5 +11,6 @@
 @interface Hunter : CCSprite
 
 -(void)aimAtPoint:(CGPoint)point;
+-(CCSprite*)shootAtPoint:(CGPoint)point;
 
 @end

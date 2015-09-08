@@ -48,5 +48,32 @@
     self.torso.rotation = [self calculateTorsoRotationToLookAtPoint:point];
 }
 
+-(CCSprite*)shootAtPoint:(CGPoint)point {
+    [self aimAtPoint:point];
+    CCSprite *arrow = [CCSprite spriteWithImageNamed:@"arrow.png"];
+    arrow.anchorPoint = ccp(0, 0.5f);
+    
+    CGPoint torsoCenterGlobal = [self torsoCenterInWorldCoordinates];
+    arrow.position = torsoCenterGlobal;
+    arrow.rotation = self.torso.rotation;
+    
+    [self.parent addChild:arrow];
+    
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    
+    CGPoint forwardVector = ccp(1.0f, 0);
+    float angleRadians = -1 * CC_DEGREES_TO_RADIANS(self.torso.rotation);
+    CGPoint arrowMovementVector = ccpRotateByAngle(forwardVector, CGPointZero, angleRadians);
+    arrowMovementVector = ccpNormalize(arrowMovementVector);
+    arrowMovementVector = ccpMult(arrowMovementVector, viewSize.width * 2.0f);
+    
+    CCActionMoveBy *moveAction = [CCActionMoveBy actionWithDuration:2.0f position:arrowMovementVector];
+    [arrow runAction:moveAction];
+    
+    return arrow;
+    
+    
+}
+
 
 @end
