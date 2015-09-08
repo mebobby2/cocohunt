@@ -51,7 +51,7 @@
         Bird * bird = self.birds[i];
         BOOL birdFlewOffScreen = (bird.position.x + (bird.contentSize.width * 0.5f)) > viewSize.width;
         
-        if (bird.flipX == YES && birdFlewOffScreen) {
+        if (bird.birdState == BirdStateFlyingOut && birdFlewOffScreen) {
             [self.birds removeObject:bird];
             [bird removeBird:NO];
             continue;
@@ -103,12 +103,14 @@
     CGPoint screenLeft = ccp(0, birdY);
     
     CCActionMoveTo *moveToLeftEdge = [CCActionMoveTo actionWithDuration:birdTime position:screenLeft];
-    CCActionFlipX * turnaround = [CCActionFlipX actionWithFlipX:YES];
+    CCActionFlipX * turnaround = [CCActionCallFunc actionWithTarget:bird selector:@selector(turnaround)];
     CCActionMoveTo *moveBackOffScreen = [CCActionMoveTo actionWithDuration:birdTime position:birdStart];
     
-    CCActionSequence *moveLeftThenBack = [CCActionSequence actions:moveToLeftEdge, turnaround, moveBackOffScreen, nil];
+    CCActionSequence *moveLeftThenBack = [CCActionSequence actions:moveToLeftEdge, turnaround, moveBackOffScreen, turnaround, nil];
     
-    [bird runAction:moveLeftThenBack];
+    CCActionRepeatForever *flyForever = [CCActionRepeatForever actionWithAction:moveLeftThenBack];
+    
+    [bird runAction:flyForever];
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {

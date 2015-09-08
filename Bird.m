@@ -8,6 +8,12 @@
 
 #import "Bird.h"
 
+@interface Bird()
+
+@property (nonatomic, assign) int timesToVisit;
+
+@end
+
 @implementation Bird
 
 -(instancetype)initWithBirdType:(BirdType)typeOfBird {
@@ -31,6 +37,8 @@
     
     if (self = [super initWithImageNamed:birdImageName]) {
         self.birdType = typeOfBird;
+        self.timesToVisit = 3;
+        self.birdState = BirdStateFlyingIn;
         [self animateFly];
     }
     return self;
@@ -73,12 +81,24 @@
 }
 
 -(void)removeBird:(BOOL)hitByArrow {
-    if (hitByArrow) {
-        CCLOG(@"Bird hit by arrow");
-    } else {
-        CCLOG(@"Bird flew away");
-    }
     [self removeFromParentAndCleanup:YES];
+    
+    if (hitByArrow) {
+        self.birdState = BirdStateDead;
+    } else {
+        self.birdState = BirdStateFlewOut;
+    }
+}
+
+-(void)turnaround {
+    self.flipX = !self.flipX;
+    
+    if (self.flipX)
+        self.timesToVisit--;
+    
+    if (self.timesToVisit <= 0) {
+        self.birdState = BirdStateFlyingOut;
+    }
 }
 
 @end

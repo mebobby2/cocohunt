@@ -14,10 +14,20 @@ typedef enum BirdType {
     BirdTypeSmall
 } BirdType;
 
+typedef enum BirdState{
+    BirdStateFlyingIn,
+    BirdStateFlyingOut,
+    BirdStateFlewOut,
+    BirdStateDead
+} BirdState;
+
 @interface Bird : CCSprite
 
 @property (nonatomic, assign) BirdType birdType;
+@property (nonatomic, assign) BirdState birdState;
+
 -(instancetype)initWithBirdType:(BirdType)typeOfBird;
 -(void)removeBird:(BOOL)hitByArrow;
+-(void)turnaround;
 
 @end
