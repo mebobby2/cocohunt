@@ -5,7 +5,8 @@
 @interface GameScene()
 
 @property (nonatomic) Hunter *hunter;
-@property (nonatomic) Bird *bird;
+@property (nonatomic) float timeUntilNextBird;
+@property (nonatomic) NSMutableArray *birds;
 
 @end
 
@@ -13,11 +14,12 @@
 
 -(instancetype)init {
     if (self = [super init]) {
-        self.userInteractionEnabled = YES;
-        [self addBackground];
         [self loadSpriteSheet];
+        [self addBackground];
         [self addHunter];
-        [self addBird];
+        self.timeUntilNextBird = 0;
+        self.birds = [NSMutableArray array];
+        self.userInteractionEnabled = YES;
     }
     
     return self;
@@ -28,25 +30,49 @@
 }
 
 -(void)update:(CCTime)delta {
+    self.timeUntilNextBird -= delta;
+    
+    if (self.timeUntilNextBird <= 0) {
+        [self spawnBird];
+        
+        int nextBirdTimeMax = 5;
+        int nextBirdTimeMin = 2;
+        int nextBirdTime = nextBirdTimeMin + arc4random_uniform(nextBirdTimeMax - nextBirdTimeMin);
+        self.timeUntilNextBird = nextBirdTime;
+    }
+}
+
+-(void)spawnBird {
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     
-    if (self.bird.position.x < 0) {
-        self.bird.flipX = YES;
-    }
+    int maxY = viewSize.height * 0.9f;
+    int minY = viewSize.height * 0.6f;
+    int birdY = minY + arc4random_uniform(maxY - minY);
+    int birdX = viewSize.width * 1.3f;
+    CGPoint birdStart = ccp(birdX, birdY);
     
-    if (self.bird.position.x > viewSize.width) {
-        self.bird.flipX = NO;
-    }
+    BirdType birdType = (BirdType)(arc4random_uniform(3));
     
-    float birdSpeed = 50;
-    float distanceToMove = birdSpeed * delta;
+    Bird *bird = [[Bird alloc] initWithBirdType:birdType];
+    bird.position = birdStart;
     
-    float direction = self.bird.flipX ? 1 : -1;
+    [self addChild:bird];
     
-    float newX = self.bird.position.x + direction * distanceToMove;
-    float newY = self.bird.position.y;
+    [self.birds addObject:bird];
     
-    self.bird.position = ccp(newX, newY);
+    int maxTime = 20;
+    int minTime = 10;
+    int birdTime = minTime + (arc4random() % (maxTime - minTime));
+    
+    CGPoint screenLeft = ccp(0, birdY);
+    
+    CCActionMoveTo *moveToLeftEdge = [CCActionMoveTo actionWithDuration:birdTime position:screenLeft];
+    CCActionFlipX * turnaround = [CCActionFlipX actionWithFlipX:YES];
+    CCActionMoveTo *moveBackOffScreen = [CCActionMoveTo actionWithDuration:birdTime position:birdStart];
+    
+    CCActionSequence *moveLeftThenBack = [CCActionSequence actions:moveToLeftEdge, turnaround, moveBackOffScreen, nil];
+    
+    [bird runAction:moveLeftThenBack];
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
@@ -82,13 +108,6 @@
     
     self.hunter.position = ccp(hunterPositionX, hunterPositionY);
     [self addChild:self.hunter];
-}
-
--(void)addBird {
-    CGSize viewSize = [CCDirector sharedDirector].viewSize;
-    self.bird = [[Bird alloc] initWithBirdType:BirdTypeSmall];
-    self.bird.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.9f);
-    [self addChild:self.bird];
 }
 
 @end
