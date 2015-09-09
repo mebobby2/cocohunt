@@ -7,6 +7,7 @@
 //
 
 #import "Hunter.h"
+#import "GameScene.h"
 
 @interface Hunter()
 
@@ -65,7 +66,8 @@
     arrow.position = torsoCenterGlobal;
     arrow.rotation = self.torso.rotation;
     
-    [self.parent addChild:arrow];
+    GameScene* parent = (GameScene*)self.parent;
+    [parent addArrowToScene:arrow];
     
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     

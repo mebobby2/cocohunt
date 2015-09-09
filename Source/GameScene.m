@@ -308,4 +308,8 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     return isInRange;
 }
 
+-(void)addArrowToScene:(CCSprite *)arrow {
+    [self addChild:arrow z:Z_MAIN];
+}
+
 @end

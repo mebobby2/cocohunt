@@ -9,5 +9,6 @@ typedef enum GameState {
 @interface GameScene : CCScene
 
 @property (nonatomic, assign) GameState gameState;
+-(void)addArrowToScene:(CCSprite*)arrow;
 
 @end
