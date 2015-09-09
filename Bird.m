@@ -80,14 +80,18 @@
     [self runAction:flyForever];
 }
 
--(void)removeBird:(BOOL)hitByArrow {
+-(int)removeBird:(BOOL)hitByArrow {
     [self removeFromParentAndCleanup:YES];
+    
+    int score = 0;
     
     if (hitByArrow) {
         self.birdState = BirdStateDead;
+        score = (self.timesToVisit + 1) * 5;
     } else {
         self.birdState = BirdStateFlewOut;
     }
+    return score;
 }
 
 -(void)turnaround {

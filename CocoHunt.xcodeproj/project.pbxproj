@@ -45,6 +45,7 @@
 		7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9790FE19E62E40001FFC4D /* libcocos2d.a */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		9250EC751BA0F0220022287F /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC741BA0F0220022287F /* HUDLayer.m */; };
+		9250EC7B1BA0F8890022287F /* GameStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC7A1BA0F8890022287F /* GameStats.m */; };
 		927F619E196C771E000F43EF /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* GameScene.m */; };
 		927F61A5196C771E000F43EF /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
 		927F61A9196C771E000F43EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
@@ -184,6 +185,8 @@
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		9250EC731BA0F0220022287F /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
 		9250EC741BA0F0220022287F /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
+		9250EC791BA0F8890022287F /* GameStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStats.h; sourceTree = "<group>"; };
+		9250EC7A1BA0F8890022287F /* GameStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStats.m; sourceTree = "<group>"; };
 		927F61BF196C771E000F43EF /* CocoHunt Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CocoHunt Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E58BBE1B9CEFF900F0B51E /* game_scene_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_scene_bg-hd.png"; sourceTree = "<group>"; };
 		92E58BBF1B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_scene_bg-iphone5hd.png"; sourceTree = "<group>"; };
@@ -456,6 +459,15 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
+		9250EC781BA0F8720022287F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9250EC791BA0F8890022287F /* GameStats.h */,
+				9250EC7A1BA0F8890022287F /* GameStats.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		92E58BB81B9CEF2E00F0B51E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +503,7 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				9250EC781BA0F8720022287F /* Common */,
 				92E58BC41B9CF69C00F0B51E /* GameObjects */,
 				92E58BB81B9CEF2E00F0B51E /* Scenes */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
@@ -889,6 +902,7 @@
 				7A046D8C19E8A20E004C4763 /* GameScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				9250EC751BA0F0220022287F /* HUDLayer.m in Sources */,
+				9250EC7B1BA0F8890022287F /* GameStats.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

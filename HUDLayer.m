@@ -51,4 +51,10 @@
     return self;
 }
 
+-(void)updateStats:(GameStats *)stats {
+    self.score.string = [NSString stringWithFormat:@"Score: %d", stats.score];
+    self.birdsLeft.string = [NSString stringWithFormat:@"Birds Left: %d", stats.birdsLeft];
+    self.lives.string = [NSString stringWithFormat:@"Lives: %d", stats.lives];
+}
+
 @end

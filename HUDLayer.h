@@ -7,7 +7,10 @@
 //
 
 #import "CCNode.h"
+#import "GameStats.h"
 
 @interface HUDLayer : CCNode
+
+-(void)updateStats:(GameStats*)stats;
 
 @end

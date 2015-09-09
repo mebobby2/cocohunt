@@ -21,6 +21,7 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
 @property int maxAimingRadius;
 @property CCSprite* aimingIndicator;
 @property HUDLayer *hud;
+@property GameStats *gameStats;
 
 @property BOOL useGyroToAim;
 @property CMMotionManager *motionManager;
@@ -43,6 +44,7 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
         self.birdsToLose = 3;
         [self setupAimingIndicator];
         [self initializeHUD];
+        [self initializeStats];
     }
     
     return self;
@@ -51,6 +53,14 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
 -(void)initializeHUD {
     self.hud = [[HUDLayer alloc] init];
     [self addChild:self.hud z:Z_HUD];
+}
+
+-(void)initializeStats {
+    self.gameStats = [[GameStats alloc] init];
+    self.gameStats.birdsLeft = self.birdsToSpawn;
+    self.gameStats.lives = self.birdsToLose;
+    
+    [self.hud updateStats:self.gameStats];
 }
 
 -(void)initializeControls {
@@ -123,6 +133,9 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
         int nextBirdTimeMin = 2;
         int nextBirdTime = nextBirdTimeMin + arc4random_uniform(nextBirdTimeMax - nextBirdTimeMin);
         self.timeUntilNextBird = nextBirdTime;
+        
+        self.gameStats.birdsLeft = self.birdsToSpawn;
+        [self.hud updateStats:self.gameStats];
     }
     
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
@@ -137,6 +150,8 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
             [self.birds removeObject:bird];
             [bird removeBird:NO];
             self.birdsToLose--;
+            self.gameStats.lives = self.birdsToLose;
+            [self.hud updateStats:self.gameStats];
             continue;
         }
         
@@ -153,7 +168,10 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
                 [self.arrows removeObject:arrow];
                 
                 [self.birds removeObject:bird];
-                [bird removeBird:YES];
+                int score = [bird removeBird:YES];
+                
+                self.gameStats.score += score;
+                [self.hud updateStats:self.gameStats];
                 
                 break;
             }

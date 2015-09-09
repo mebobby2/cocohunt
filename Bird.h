@@ -27,7 +27,7 @@ typedef enum BirdState{
 @property (nonatomic, assign) BirdState birdState;
 
 -(instancetype)initWithBirdType:(BirdType)typeOfBird;
--(void)removeBird:(BOOL)hitByArrow;
+-(int)removeBird:(BOOL)hitByArrow;
 -(void)turnaround;
 
 @end
