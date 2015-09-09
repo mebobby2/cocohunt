@@ -1,7 +1,14 @@
 #import "GameScene.h"
 #import "Hunter.h"
 #import "Bird.h"
+#import "HUDLayer.h"
 @import CoreMotion;
+
+typedef NS_ENUM(NSUInteger, Z_ORDER){
+    Z_BACKGROUND,
+    Z_MAIN,
+    Z_HUD
+};
 
 @interface GameScene()
 
@@ -13,6 +20,7 @@
 @property int birdsToLose;
 @property int maxAimingRadius;
 @property CCSprite* aimingIndicator;
+@property HUDLayer *hud;
 
 @property BOOL useGyroToAim;
 @property CMMotionManager *motionManager;
@@ -34,9 +42,15 @@
         self.birdsToSpawn = 20;
         self.birdsToLose = 3;
         [self setupAimingIndicator];
+        [self initializeHUD];
     }
     
     return self;
+}
+
+-(void)initializeHUD {
+    self.hud = [[HUDLayer alloc] init];
+    [self addChild:self.hud z:Z_HUD];
 }
 
 -(void)initializeControls {
@@ -57,8 +71,6 @@
     
     if (roll > 0)
         pitch = -1 * pitch;
-    
-    CCLOG(@"Pitch: %F", pitch);
     
     CGPoint forward = ccp(1.0, 0);
     CGPoint rot = ccpRotateByAngle(forward, CGPointZero, pitch);
@@ -92,7 +104,7 @@
     self.aimingIndicator.anchorPoint = ccp(0, 0.5f);
     self.aimingIndicator.visible = NO;
     
-    [self addChild:self.aimingIndicator];
+    [self addChild:self.aimingIndicator z:Z_MAIN];
 }
 
 -(void)update:(CCTime)delta {
@@ -183,7 +195,7 @@
     Bird *bird = [[Bird alloc] initWithBirdType:birdType];
     bird.position = birdStart;
     
-    [self addChild:bird];
+    [self addChild:bird z:Z_MAIN];
     
     [self.birds addObject:bird];
     
@@ -267,7 +279,7 @@
     background.position  = ccp(viewSize.width * 0.5f, viewSize.height * 0.5f);
     background.scaleX = viewSize.width / [background boundingBox].size.width;
     background.scaleY = viewSize.height / [background boundingBox].size.height;
-    [self addChild:background];
+    [self addChild:background z:Z_BACKGROUND];
 }
 
 -(void)addHunter {
@@ -278,7 +290,7 @@
     float hunterPositionY = viewSize.height * 0.3f;
     
     self.hunter.position = ccp(hunterPositionX, hunterPositionY);
-    [self addChild:self.hunter];
+    [self addChild:self.hunter z:Z_MAIN];
 }
 
 -(BOOL)checkAimingIndicatorForPoint:(CGPoint)point {
