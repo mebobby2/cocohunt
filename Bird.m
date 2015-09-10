@@ -81,16 +81,19 @@
 }
 
 -(int)removeBird:(BOOL)hitByArrow {
-    [self removeFromParentAndCleanup:YES];
+    [self stopAllActions];
     
     int score = 0;
     
     if (hitByArrow) {
         self.birdState = BirdStateDead;
         score = (self.timesToVisit + 1) * 5;
+        [self displayPoints:score];
     } else {
         self.birdState = BirdStateFlewOut;
     }
+    
+    [self removeFromParentAndCleanup:YES];
     return score;
 }
 
@@ -103,6 +106,42 @@
     if (self.timesToVisit <= 0) {
         self.birdState = BirdStateFlyingOut;
     }
+}
+
+-(void)displayPoints:(int)amount {
+    NSString *ptsStr = [NSString stringWithFormat:@"%d", amount];
+    CCLabelBMFont *ptsLabel = [CCLabelBMFont labelWithString:ptsStr fntFile:@"points.fnt"];
+    ptsLabel.position = self.position;
+    
+    CCNode *scene = self.parent;
+    [scene addChild:ptsLabel];
+    
+    float xDelta1 = 10;
+    float yDelta1 = 5;
+    float yDelta2 = 10;
+    float yDelta4 = 20;
+    ccBezierConfig curve;
+    curve.controlPoint_1 = ccp(ptsLabel.position.x - xDelta1, ptsLabel.position.y + yDelta1);
+    curve.controlPoint_2 = ccp(ptsLabel.position.x + xDelta1, ptsLabel.position.y + yDelta2);
+    curve.endPosition = ccp(ptsLabel.position.x, ptsLabel.position.y + yDelta4);
+    
+    float baseDuratin = 1.0f;
+    
+    CCActionBezierTo *bezierMove = [CCActionBezierTo actionWithDuration:baseDuratin bezier:curve];
+    
+    CCActionFadeOut *fadeOut = [CCActionFadeOut actionWithDuration:baseDuratin * 0.25f];
+    
+    CCActionDelay * delay = [CCActionDelay actionWithDuration:baseDuratin * 0.75f];
+    
+    CCActionSequence *delayAndFade = [CCActionSequence actions:delay, fadeOut, nil];
+    
+    CCActionSpawn *bezieAndFaout = [CCActionSpawn actions:bezierMove, delayAndFade, nil];
+    
+    CCActionRemove *removeInTheEnd = [CCActionRemove action];
+    
+    CCActionSequence *actions = [CCActionSequence actions:bezieAndFaout, removeInTheEnd, nil];
+    
+    [ptsLabel runAction:actions];
 }
 
 @end
