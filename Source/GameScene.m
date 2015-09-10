@@ -7,6 +7,7 @@
 typedef NS_ENUM(NSUInteger, Z_ORDER){
     Z_BACKGROUND,
     Z_MAIN,
+    Z_LABELS,
     Z_HUD
 };
 
@@ -191,12 +192,31 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
 
 -(void)lost {
     self.gameState = GameStateLost;
-    CCLOG(@"YOU LOST!");
+    [self displayWinLoseLabelWithText:@"You lose!" andFont:@"lost.fnt"];
 }
 
 -(void)won {
     self.gameState = GameStateWon;
-    CCLOG(@"YOU WON!");
+    [self displayWinLoseLabelWithText:@"You win!" andFont:@"win.fnt"];
+}
+
+-(void)displayWinLoseLabelWithText:(NSString*)text andFont:(NSString*)fontFileName {
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    CCLabelBMFont *label = [CCLabelBMFont labelWithString:text fntFile:fontFileName];
+    
+    label.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.75f);
+    
+    [self addChild:label z:Z_LABELS];
+    label.scale = 0.01f;
+    
+    CCActionScaleTo *scaleUp = [CCActionScaleTo actionWithDuration:1.5f scale:1.2f];
+    CCActionEaseIn *easedScaleUp = [CCActionEaseIn actionWithAction:scaleUp rate:5.0];
+    
+    CCActionScaleTo *scaleNormal = [CCActionScaleTo actionWithDuration:0.5f scale:1.0f];
+    
+    CCActionSequence *scaleUpThenNormal = [CCActionSequence actions:easedScaleUp, scaleNormal, nil];
+    
+    [label runAction:scaleUpThenNormal];
 }
 
 -(void)spawnBird {
