@@ -92,6 +92,49 @@
     [self runAction:rotateForever];
 }
 
+-(void)explodeFeathers {
+    int totalNumberOfFeathers = 100;
+    CCParticleSystem * explosion = [CCParticleSystem particleWithTotalParticles:totalNumberOfFeathers];
+    
+    explosion.position = self.position;
+    explosion.emitterMode = CCParticleSystemModeGravity;
+    
+    explosion.gravity = ccp(0, -200.0f);
+    
+    explosion.duration = 0.1f;
+    
+    explosion.emissionRate = totalNumberOfFeathers/explosion.duration;
+    
+    explosion.texture = [CCTexture textureWithFile:@"feather.png"];
+    
+    explosion.startColor = [CCColor whiteColor];
+    explosion.endColor = [[CCColor whiteColor] colorWithAlphaComponent:0.0f];
+    
+    explosion.life = 0.25f;
+    explosion.lifeVar = 0.75f;
+    explosion.speed = 60;
+    explosion.speedVar = 80;
+    
+    explosion.startSize = 16;
+    explosion.startSizeVar = 4;
+    explosion.endSize = CCParticleSystemStartSizeEqualToEndSize;
+    explosion.endSizeVar = 8;
+    
+    explosion.angleVar = 360;
+    explosion.startSpinVar = 360;
+    explosion.endSpinVar = 360;
+    
+    explosion.autoRemoveOnFinish = YES;
+    
+    ccBlendFunc blendFunc;
+    blendFunc.src = GL_SRC_ALPHA;
+    blendFunc.dst = GL_ONE;
+    explosion.blendFunc = blendFunc;
+    
+    CCNode* scene = self.parent;
+    [scene addChild:explosion];
+}
+
 -(int)removeBird:(BOOL)hitByArrow {
     [self stopAllActions];
     
@@ -102,6 +145,7 @@
         score = (self.timesToVisit + 1) * 5;
         [self displayPoints:score];
         [self animateFall];
+        [self explodeFeathers];
     } else {
         self.birdState = BirdStateFlewOut;
          [self removeFromParentAndCleanup:YES];

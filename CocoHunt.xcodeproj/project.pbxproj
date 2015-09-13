@@ -139,6 +139,8 @@
 		92896FB91BA621C4000E1810 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FB61BA621C4000E1810 /* Default.png */; };
 		92896FBA1BA621C4000E1810 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FB71BA621C4000E1810 /* Default@2x.png */; };
 		92896FBD1BA621EA000E1810 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92896FBC1BA621EA000E1810 /* IntroScene.m */; };
+		92896FC11BA62C37000E1810 /* feather-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FBF1BA62C37000E1810 /* feather-hd.png */; };
+		92896FC21BA62C37000E1810 /* feather.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FC01BA62C37000E1810 /* feather.png */; };
 		92AE53DD1BA13DC400A885CA /* lost-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D11BA13DC400A885CA /* lost-hd.fnt */; };
 		92AE53DE1BA13DC400A885CA /* lost-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D21BA13DC400A885CA /* lost-hd.png */; };
 		92AE53DF1BA13DC400A885CA /* lost.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D31BA13DC400A885CA /* lost.fnt */; };
@@ -349,6 +351,8 @@
 		92896FB71BA621C4000E1810 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		92896FBB1BA621EA000E1810 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
 		92896FBC1BA621EA000E1810 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
+		92896FBF1BA62C37000E1810 /* feather-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feather-hd.png"; sourceTree = "<group>"; };
+		92896FC01BA62C37000E1810 /* feather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feather.png; sourceTree = "<group>"; };
 		92AE53D11BA13DC400A885CA /* lost-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lost-hd.fnt"; sourceTree = "<group>"; };
 		92AE53D21BA13DC400A885CA /* lost-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lost-hd.png"; sourceTree = "<group>"; };
 		92AE53D31BA13DC400A885CA /* lost.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lost.fnt; sourceTree = "<group>"; };
@@ -718,6 +722,15 @@
 			name = ExplodingCoconut;
 			sourceTree = "<group>";
 		};
+		92896FBE1BA62C1E000E1810 /* Feathers */ = {
+			isa = PBXGroup;
+			children = (
+				92896FBF1BA62C37000E1810 /* feather-hd.png */,
+				92896FC01BA62C37000E1810 /* feather.png */,
+			);
+			name = Feathers;
+			sourceTree = "<group>";
+		};
 		92AE53CE1BA13DA800A885CA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,6 +870,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92896FBE1BA62C1E000E1810 /* Feathers */,
 				92896FB51BA621C4000E1810 /* Default-568h@2x.png */,
 				92896FB61BA621C4000E1810 /* Default.png */,
 				92896FB71BA621C4000E1810 /* Default@2x.png */,
@@ -1097,6 +1111,7 @@
 				92896FA31BA6213C000E1810 /* Exploding_Coconut_26-hd.png in Resources */,
 				92896F7B1BA6213C000E1810 /* Exploding_Coconut_6-hd.png in Resources */,
 				92896F891BA6213C000E1810 /* Exploding_Coconut_13-hd.png in Resources */,
+				92896FC21BA62C37000E1810 /* feather.png in Resources */,
 				92AE53E61BA13DC400A885CA /* win-hd.png in Resources */,
 				92896FB31BA6213C000E1810 /* Exploding_Coconut_34-hd.png in Resources */,
 				92896F801BA6213C000E1810 /* Exploding_Coconut_8.png in Resources */,
@@ -1105,6 +1120,7 @@
 				92896F811BA6213C000E1810 /* Exploding_Coconut_9-hd.png in Resources */,
 				92896F711BA6213C000E1810 /* Exploding_Coconut_1-hd.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
+				92896FC11BA62C37000E1810 /* feather-hd.png in Resources */,
 				92AE53E11BA13DC400A885CA /* points-hd.fnt in Resources */,
 				92896F991BA6213C000E1810 /* Exploding_Coconut_21-hd.png in Resources */,
 				92AE53DD1BA13DC400A885CA /* lost-hd.fnt in Resources */,
