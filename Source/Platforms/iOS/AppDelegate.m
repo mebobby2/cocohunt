@@ -26,7 +26,7 @@
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
-#import "GameScene.h"
+#import "IntroScene.h"
 
 @implementation AppController
 
@@ -61,7 +61,7 @@
 
 - (CCScene*) startScene
 {
-    return [[GameScene alloc] init];
+    return [[IntroScene alloc] init];
 }
 
 @end
