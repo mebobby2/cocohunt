@@ -80,6 +80,18 @@
     [self runAction:flyForever];
 }
 
+-(void)animateFall {
+    CGPoint fallDownOffScreenPoint = ccp(self.position.x, -self.boundingBox.size.height);
+    CCActionMoveTo *fallOffScreen = [CCActionMoveTo actionWithDuration:2.0f position:fallDownOffScreenPoint];
+    CCActionRemove *removeWhenDone = [CCActionRemove action];
+    CCActionSequence *fallSequence = [CCActionSequence actions:fallOffScreen, removeWhenDone, nil];
+    [self runAction:fallSequence];
+    
+    CCActionRotateBy *rotate = [CCActionRotateBy actionWithDuration:0.1 angle:60];
+    CCActionRepeatForever *rotateForever = [CCActionRepeatForever actionWithAction:rotate];
+    [self runAction:rotateForever];
+}
+
 -(int)removeBird:(BOOL)hitByArrow {
     [self stopAllActions];
     
@@ -89,11 +101,12 @@
         self.birdState = BirdStateDead;
         score = (self.timesToVisit + 1) * 5;
         [self displayPoints:score];
+        [self animateFall];
     } else {
         self.birdState = BirdStateFlewOut;
+         [self removeFromParentAndCleanup:YES];
     }
     
-    [self removeFromParentAndCleanup:YES];
     return score;
 }
 
