@@ -101,6 +101,26 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     [super onEnter];
     self.gameState = GameStatePlaying;
     [self initializeControls];
+    [self startFire];
+}
+
+-(void)startFire {
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    
+    CCSprite *campfire = [CCSprite spriteWithImageNamed:@"campfire.png"];
+    campfire.position = ccp(viewSize.width*0.5, viewSize.height* 0.05f);
+    [self addChild:campfire];
+    
+    CGPoint campfireTop = ccp(campfire.position.x, campfire.position.y + campfire.boundingBox.size.height * 0.5f);
+    
+    CCParticleFire *fire = [CCParticleFire particleWithTotalParticles:300];
+    fire.position = campfireTop;
+    
+    fire.texture = [CCTexture textureWithFile:@"feather.png"];
+    
+    fire.scale = 0.3f;
+    
+    [self addChild:fire];
 }
 
 -(void)loadSpriteSheet {

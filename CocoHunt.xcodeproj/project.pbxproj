@@ -141,6 +141,8 @@
 		92896FBD1BA621EA000E1810 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92896FBC1BA621EA000E1810 /* IntroScene.m */; };
 		92896FC11BA62C37000E1810 /* feather-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FBF1BA62C37000E1810 /* feather-hd.png */; };
 		92896FC21BA62C37000E1810 /* feather.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FC01BA62C37000E1810 /* feather.png */; };
+		92896FC61BA62E40000E1810 /* campfire-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FC41BA62E40000E1810 /* campfire-hd.png */; };
+		92896FC71BA62E40000E1810 /* campfire.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FC51BA62E40000E1810 /* campfire.png */; };
 		92AE53DD1BA13DC400A885CA /* lost-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D11BA13DC400A885CA /* lost-hd.fnt */; };
 		92AE53DE1BA13DC400A885CA /* lost-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D21BA13DC400A885CA /* lost-hd.png */; };
 		92AE53DF1BA13DC400A885CA /* lost.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D31BA13DC400A885CA /* lost.fnt */; };
@@ -353,6 +355,8 @@
 		92896FBC1BA621EA000E1810 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		92896FBF1BA62C37000E1810 /* feather-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feather-hd.png"; sourceTree = "<group>"; };
 		92896FC01BA62C37000E1810 /* feather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feather.png; sourceTree = "<group>"; };
+		92896FC41BA62E40000E1810 /* campfire-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "campfire-hd.png"; sourceTree = "<group>"; };
+		92896FC51BA62E40000E1810 /* campfire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = campfire.png; sourceTree = "<group>"; };
 		92AE53D11BA13DC400A885CA /* lost-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lost-hd.fnt"; sourceTree = "<group>"; };
 		92AE53D21BA13DC400A885CA /* lost-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lost-hd.png"; sourceTree = "<group>"; };
 		92AE53D31BA13DC400A885CA /* lost.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lost.fnt; sourceTree = "<group>"; };
@@ -731,6 +735,15 @@
 			name = Feathers;
 			sourceTree = "<group>";
 		};
+		92896FC31BA62E29000E1810 /* Campfile */ = {
+			isa = PBXGroup;
+			children = (
+				92896FC41BA62E40000E1810 /* campfire-hd.png */,
+				92896FC51BA62E40000E1810 /* campfire.png */,
+			);
+			name = Campfile;
+			sourceTree = "<group>";
+		};
 		92AE53CE1BA13DA800A885CA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,6 +883,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92896FC31BA62E29000E1810 /* Campfile */,
 				92896FBE1BA62C1E000E1810 /* Feathers */,
 				92896FB51BA621C4000E1810 /* Default-568h@2x.png */,
 				92896FB61BA621C4000E1810 /* Default.png */,
@@ -1116,6 +1130,7 @@
 				92896FB31BA6213C000E1810 /* Exploding_Coconut_34-hd.png in Resources */,
 				92896F801BA6213C000E1810 /* Exploding_Coconut_8.png in Resources */,
 				92896FA61BA6213C000E1810 /* Exploding_Coconut_27.png in Resources */,
+				92896FC71BA62E40000E1810 /* campfire.png in Resources */,
 				92896FAA1BA6213C000E1810 /* Exploding_Coconut_29.png in Resources */,
 				92896F811BA6213C000E1810 /* Exploding_Coconut_9-hd.png in Resources */,
 				92896F711BA6213C000E1810 /* Exploding_Coconut_1-hd.png in Resources */,
@@ -1130,6 +1145,7 @@
 				92896F701BA6213C000E1810 /* Exploding_Coconut_0.png in Resources */,
 				92896FA71BA6213C000E1810 /* Exploding_Coconut_28-hd.png in Resources */,
 				92896FB91BA621C4000E1810 /* Default.png in Resources */,
+				92896FC61BA62E40000E1810 /* campfire-hd.png in Resources */,
 				92896F761BA6213C000E1810 /* Exploding_Coconut_3.png in Resources */,
 				92896F881BA6213C000E1810 /* Exploding_Coconut_12.png in Resources */,
 				92896F8E1BA6213C000E1810 /* Exploding_Coconut_15.png in Resources */,
