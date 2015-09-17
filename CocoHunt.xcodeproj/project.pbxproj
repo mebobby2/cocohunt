@@ -155,6 +155,7 @@
 		92AE53E61BA13DC400A885CA /* win-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53DA1BA13DC400A885CA /* win-hd.png */; };
 		92AE53E71BA13DC400A885CA /* win.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53DB1BA13DC400A885CA /* win.fnt */; };
 		92AE53E81BA13DC400A885CA /* win.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53DC1BA13DC400A885CA /* win.png */; };
+		92D0193D1BAB74CE00C4AE47 /* sun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92D0193C1BAB74CE00C4AE47 /* sun.plist */; };
 		92E58BC11B9CEFF900F0B51E /* game_scene_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BBE1B9CEFF900F0B51E /* game_scene_bg-hd.png */; };
 		92E58BC21B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BBF1B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png */; };
 		92E58BC31B9CEFF900F0B51E /* game_scene_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BC01B9CEFF900F0B51E /* game_scene_bg.png */; };
@@ -369,6 +370,7 @@
 		92AE53DA1BA13DC400A885CA /* win-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "win-hd.png"; sourceTree = "<group>"; };
 		92AE53DB1BA13DC400A885CA /* win.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = win.fnt; sourceTree = "<group>"; };
 		92AE53DC1BA13DC400A885CA /* win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = win.png; sourceTree = "<group>"; };
+		92D0193C1BAB74CE00C4AE47 /* sun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sun.plist; sourceTree = "<group>"; };
 		92E58BBE1B9CEFF900F0B51E /* game_scene_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_scene_bg-hd.png"; sourceTree = "<group>"; };
 		92E58BBF1B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_scene_bg-iphone5hd.png"; sourceTree = "<group>"; };
 		92E58BC01B9CEFF900F0B51E /* game_scene_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_scene_bg.png; sourceTree = "<group>"; };
@@ -763,6 +765,14 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		92D019391BAB74C300C4AE47 /* Sun */ = {
+			isa = PBXGroup;
+			children = (
+				92D0193C1BAB74CE00C4AE47 /* sun.plist */,
+			);
+			name = Sun;
+			sourceTree = "<group>";
+		};
 		92E58BB81B9CEF2E00F0B51E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +893,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92D019391BAB74C300C4AE47 /* Sun */,
 				92896FC31BA62E29000E1810 /* Campfile */,
 				92896FBE1BA62C1E000E1810 /* Feathers */,
 				92896FB51BA621C4000E1810 /* Default-568h@2x.png */,
@@ -1145,6 +1156,7 @@
 				92896F701BA6213C000E1810 /* Exploding_Coconut_0.png in Resources */,
 				92896FA71BA6213C000E1810 /* Exploding_Coconut_28-hd.png in Resources */,
 				92896FB91BA621C4000E1810 /* Default.png in Resources */,
+				92D0193D1BAB74CE00C4AE47 /* sun.plist in Resources */,
 				92896FC61BA62E40000E1810 /* campfire-hd.png in Resources */,
 				92896F761BA6213C000E1810 /* Exploding_Coconut_3.png in Resources */,
 				92896F881BA6213C000E1810 /* Exploding_Coconut_12.png in Resources */,

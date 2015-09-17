@@ -102,6 +102,7 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     self.gameState = GameStatePlaying;
     [self initializeControls];
     [self startFire];
+    //[self createTheSun];
 }
 
 -(void)startFire {
@@ -121,6 +122,13 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     fire.scale = 0.3f;
     
     [self addChild:fire];
+}
+
+-(void)createTheSun {
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    CCParticleSystem *sun = [CCParticleSystem particleWithFile:@"sun.plist"];
+    sun.position = ccp(viewSize.width * 0.05f, viewSize.height * 0.9f);
+    [self addChild:sun];
 }
 
 -(void)loadSpriteSheet {
