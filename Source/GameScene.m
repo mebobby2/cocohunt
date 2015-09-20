@@ -220,7 +220,7 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
 }
 
 -(void)lost {
-    [[AudioManager sharedAudioManager] playSoundEffect:@"lost.wav"];
+    [[AudioManager sharedAudioManager] playSoundEffect:@"lose.wav"];
     self.gameState = GameStateLost;
     [self displayWinLoseLabelWithText:@"You lose!" andFont:@"lost.fnt"];
 }
