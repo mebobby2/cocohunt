@@ -7,6 +7,7 @@
 //
 
 #import "Bird.h"
+#import "AudioManager.h"
 
 @interface Bird()
 
@@ -146,6 +147,7 @@
         [self displayPoints:score];
         [self animateFall];
         [self explodeFeathers];
+        [[AudioManager sharedAudioManager] playSoundEffect:@"bird_hit.mp3"];
     } else {
         self.birdState = BirdStateFlewOut;
          [self removeFromParentAndCleanup:YES];

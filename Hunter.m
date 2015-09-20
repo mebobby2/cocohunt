@@ -8,6 +8,7 @@
 
 #import "Hunter.h"
 #import "GameScene.h"
+#import "AudioManager.h"
 
 @interface Hunter()
 
@@ -58,6 +59,7 @@
 }
 
 -(CCSprite*)shootAtPoint:(CGPoint)point {
+    [[AudioManager sharedAudioManager] playSoundEffect:@"arrow_shot.wav"];
     [self aimAtPoint:point];
     CCSprite *arrow = [CCSprite spriteWithImageNamed:@"arrow.png"];
     arrow.anchorPoint = ccp(0, 0.5f);

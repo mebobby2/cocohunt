@@ -143,6 +143,11 @@
 		92896FC21BA62C37000E1810 /* feather.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FC01BA62C37000E1810 /* feather.png */; };
 		92896FC61BA62E40000E1810 /* campfire-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FC41BA62E40000E1810 /* campfire-hd.png */; };
 		92896FC71BA62E40000E1810 /* campfire.png in Resources */ = {isa = PBXBuildFile; fileRef = 92896FC51BA62E40000E1810 /* campfire.png */; };
+		929945161BAF54F30055E975 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 929945151BAF54F30055E975 /* AudioManager.m */; };
+		929945261BAF56D60055E975 /* arrow_shot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 929945221BAF56D60055E975 /* arrow_shot.wav */; };
+		929945271BAF56D60055E975 /* bird_hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 929945231BAF56D60055E975 /* bird_hit.mp3 */; };
+		929945281BAF56D60055E975 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 929945241BAF56D60055E975 /* lose.wav */; };
+		929945291BAF56D60055E975 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 929945251BAF56D60055E975 /* win.wav */; };
 		92AE53DD1BA13DC400A885CA /* lost-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D11BA13DC400A885CA /* lost-hd.fnt */; };
 		92AE53DE1BA13DC400A885CA /* lost-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D21BA13DC400A885CA /* lost-hd.png */; };
 		92AE53DF1BA13DC400A885CA /* lost.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D31BA13DC400A885CA /* lost.fnt */; };
@@ -358,6 +363,12 @@
 		92896FC01BA62C37000E1810 /* feather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feather.png; sourceTree = "<group>"; };
 		92896FC41BA62E40000E1810 /* campfire-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "campfire-hd.png"; sourceTree = "<group>"; };
 		92896FC51BA62E40000E1810 /* campfire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = campfire.png; sourceTree = "<group>"; };
+		929945141BAF54F30055E975 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		929945151BAF54F30055E975 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
+		929945221BAF56D60055E975 /* arrow_shot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = arrow_shot.wav; sourceTree = "<group>"; };
+		929945231BAF56D60055E975 /* bird_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird_hit.mp3; sourceTree = "<group>"; };
+		929945241BAF56D60055E975 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
+		929945251BAF56D60055E975 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		92AE53D11BA13DC400A885CA /* lost-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lost-hd.fnt"; sourceTree = "<group>"; };
 		92AE53D21BA13DC400A885CA /* lost-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lost-hd.png"; sourceTree = "<group>"; };
 		92AE53D31BA13DC400A885CA /* lost.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lost.fnt; sourceTree = "<group>"; };
@@ -647,6 +658,8 @@
 			children = (
 				9250EC791BA0F8890022287F /* GameStats.h */,
 				9250EC7A1BA0F8890022287F /* GameStats.m */,
+				929945141BAF54F30055E975 /* AudioManager.h */,
+				929945151BAF54F30055E975 /* AudioManager.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -744,6 +757,17 @@
 				92896FC51BA62E40000E1810 /* campfire.png */,
 			);
 			name = Campfile;
+			sourceTree = "<group>";
+		};
+		929945191BAF569F0055E975 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				929945221BAF56D60055E975 /* arrow_shot.wav */,
+				929945231BAF56D60055E975 /* bird_hit.mp3 */,
+				929945241BAF56D60055E975 /* lose.wav */,
+				929945251BAF56D60055E975 /* win.wav */,
+			);
+			name = Sound;
 			sourceTree = "<group>";
 		};
 		92AE53CE1BA13DA800A885CA /* Fonts */ = {
@@ -893,6 +917,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				929945191BAF569F0055E975 /* Sound */,
 				92D019391BAB74C300C4AE47 /* Sun */,
 				92896FC31BA62E29000E1810 /* Campfile */,
 				92896FBE1BA62C1E000E1810 /* Feathers */,
@@ -1116,6 +1141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92896F821BA6213C000E1810 /* Exploding_Coconut_9.png in Resources */,
+				929945261BAF56D60055E975 /* arrow_shot.wav in Resources */,
 				92896FA51BA6213C000E1810 /* Exploding_Coconut_27-hd.png in Resources */,
 				92896F9D1BA6213C000E1810 /* Exploding_Coconut_23-hd.png in Resources */,
 				92896F971BA6213C000E1810 /* Exploding_Coconut_20-hd.png in Resources */,
@@ -1174,6 +1200,7 @@
 				92AE53E71BA13DC400A885CA /* win.fnt in Resources */,
 				92896F751BA6213C000E1810 /* Exploding_Coconut_3-hd.png in Resources */,
 				92896F7A1BA6213C000E1810 /* Exploding_Coconut_5.png in Resources */,
+				929945281BAF56D60055E975 /* lose.wav in Resources */,
 				92896F901BA6213C000E1810 /* Exploding_Coconut_16.png in Resources */,
 				92896F7E1BA6213C000E1810 /* Exploding_Coconut_7.png in Resources */,
 				92896F8F1BA6213C000E1810 /* Exploding_Coconut_16-hd.png in Resources */,
@@ -1182,6 +1209,7 @@
 				92896F941BA6213C000E1810 /* Exploding_Coconut_18.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				92E58BC31B9CEFF900F0B51E /* game_scene_bg.png in Resources */,
+				929945291BAF56D60055E975 /* win.wav in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				92AE53E31BA13DC400A885CA /* points.fnt in Resources */,
 				92896F731BA6213C000E1810 /* Exploding_Coconut_2-hd.png in Resources */,
@@ -1203,6 +1231,7 @@
 				92AE53E51BA13DC400A885CA /* win-hd.fnt in Resources */,
 				92896F931BA6213C000E1810 /* Exploding_Coconut_18-hd.png in Resources */,
 				92896F8C1BA6213C000E1810 /* Exploding_Coconut_14.png in Resources */,
+				929945271BAF56D60055E975 /* bird_hit.mp3 in Resources */,
 				92E58BC21B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png in Resources */,
 				92896F9C1BA6213C000E1810 /* Exploding_Coconut_22.png in Resources */,
 				92896FAF1BA6213C000E1810 /* Exploding_Coconut_32-hd.png in Resources */,
@@ -1301,6 +1330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929945161BAF54F30055E975 /* AudioManager.m in Sources */,
 				92E58BE01B9D209000F0B51E /* Bird.m in Sources */,
 				92896FBD1BA621EA000E1810 /* IntroScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,

@@ -2,6 +2,7 @@
 #import "Hunter.h"
 #import "Bird.h"
 #import "HUDLayer.h"
+#include "AudioManager.h"
 @import CoreMotion;
 
 typedef NS_ENUM(NSUInteger, Z_ORDER){
@@ -219,11 +220,13 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
 }
 
 -(void)lost {
+    [[AudioManager sharedAudioManager] playSoundEffect:@"lost.wav"];
     self.gameState = GameStateLost;
     [self displayWinLoseLabelWithText:@"You lose!" andFont:@"lost.fnt"];
 }
 
 -(void)won {
+    [[AudioManager sharedAudioManager] playSoundEffect:@"win.wav"];
     self.gameState = GameStateWon;
     [self displayWinLoseLabelWithText:@"You win!" andFont:@"win.fnt"];
 }
