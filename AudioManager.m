@@ -8,10 +8,77 @@
 
 #import "AudioManager.h"
 
+@interface AudioManager()
+
+@property (strong) NSArray *musicFiles;
+@property (strong) OALAudioTrack *currentTrack;
+@property (strong) OALAudioTrack *nextTrack;
+
+@end
+
 @implementation AudioManager
+
+-(instancetype)init {
+    if (self = [super init]) {
+        self.musicFiles = @[@"track_0.mp3", @"track_1.mp3", @"track_2.mp3", @"track_3.mp3", @"track_4.mp3", @"track_5.mp3"];
+        self.currentTrack = nil;
+        self.nextTrack = nil;
+    }
+    return self;
+}
+
+-(void)playMusic {
+    if (self.currentTrack) {
+        NSLog(@"The music is already playing");
+        return;
+    }
+    
+    int startTrackIndex = arc4random() % self.musicFiles.count;
+    int nextTrackIndex = arc4random() % self.musicFiles.count;
+    NSString *startTrack = [self.musicFiles objectAtIndex:startTrackIndex];
+    NSString* nextTrack = [self.musicFiles objectAtIndex:nextTrackIndex];
+    
+    self.currentTrack = [OALAudioTrack track];
+    self.currentTrack.delegate = self;
+    [self.currentTrack preloadFile:startTrack];
+    [self.currentTrack play];
+    
+    self.nextTrack = [OALAudioTrack track];
+    [self.nextTrack preloadFile:nextTrack];
+}
+
+-(void)stopMusic {
+    if (!self.currentTrack) {
+        NSLog(@"The music is already stopped");
+        return;
+    }
+    
+    [self.currentTrack stop];
+    self.currentTrack = nil;
+    self.nextTrack = nil;
+}
+
+-(void)playNextTrack {
+    if (!self.currentTrack)
+        return;
+    
+    self.currentTrack = self.nextTrack;
+    self.currentTrack.delegate = self;
+    [self.currentTrack play];
+    
+    int nextTrackIndex = arc4random() % self.musicFiles.count;
+    NSString *nextTrack = [self.musicFiles objectAtIndex:nextTrackIndex];
+    
+    self.nextTrack = [OALAudioTrack track];
+    [self.nextTrack preloadFile:nextTrack];
+}
 
 -(void)playSoundEffect:(NSString *)soundFile {
     [[OALSimpleAudio sharedInstance] playEffect:soundFile];
+}
+
+-(void)playBackgroundSound:(NSString *)soundFile {
+    [[OALSimpleAudio sharedInstance] playBg:soundFile loop:YES];
 }
 
 +(AudioManager*)sharedAudioManager {
@@ -21,6 +88,12 @@
         _sharedInstance = [[self alloc] init];
     });
     return _sharedInstance;
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self playNextTrack];
+    });
 }
 
 @end

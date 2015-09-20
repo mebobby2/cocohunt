@@ -148,6 +148,13 @@
 		929945271BAF56D60055E975 /* bird_hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 929945231BAF56D60055E975 /* bird_hit.mp3 */; };
 		929945281BAF56D60055E975 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 929945241BAF56D60055E975 /* lose.wav */; };
 		929945291BAF56D60055E975 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 929945251BAF56D60055E975 /* win.wav */; };
+		9299452B1BAF6D3E0055E975 /* naturesounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9299452A1BAF6D3E0055E975 /* naturesounds.mp3 */; };
+		929945331BAF6E690055E975 /* track_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9299452D1BAF6E690055E975 /* track_0.mp3 */; };
+		929945341BAF6E690055E975 /* track_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9299452E1BAF6E690055E975 /* track_1.mp3 */; };
+		929945351BAF6E690055E975 /* track_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9299452F1BAF6E690055E975 /* track_2.mp3 */; };
+		929945361BAF6E690055E975 /* track_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 929945301BAF6E690055E975 /* track_3.mp3 */; };
+		929945371BAF6E690055E975 /* track_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 929945311BAF6E690055E975 /* track_4.mp3 */; };
+		929945381BAF6E690055E975 /* track_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 929945321BAF6E690055E975 /* track_5.mp3 */; };
 		92AE53DD1BA13DC400A885CA /* lost-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D11BA13DC400A885CA /* lost-hd.fnt */; };
 		92AE53DE1BA13DC400A885CA /* lost-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D21BA13DC400A885CA /* lost-hd.png */; };
 		92AE53DF1BA13DC400A885CA /* lost.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53D31BA13DC400A885CA /* lost.fnt */; };
@@ -369,6 +376,13 @@
 		929945231BAF56D60055E975 /* bird_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird_hit.mp3; sourceTree = "<group>"; };
 		929945241BAF56D60055E975 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 		929945251BAF56D60055E975 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
+		9299452A1BAF6D3E0055E975 /* naturesounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = naturesounds.mp3; sourceTree = "<group>"; };
+		9299452D1BAF6E690055E975 /* track_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track_0.mp3; sourceTree = "<group>"; };
+		9299452E1BAF6E690055E975 /* track_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track_1.mp3; sourceTree = "<group>"; };
+		9299452F1BAF6E690055E975 /* track_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track_2.mp3; sourceTree = "<group>"; };
+		929945301BAF6E690055E975 /* track_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track_3.mp3; sourceTree = "<group>"; };
+		929945311BAF6E690055E975 /* track_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track_4.mp3; sourceTree = "<group>"; };
+		929945321BAF6E690055E975 /* track_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = track_5.mp3; sourceTree = "<group>"; };
 		92AE53D11BA13DC400A885CA /* lost-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lost-hd.fnt"; sourceTree = "<group>"; };
 		92AE53D21BA13DC400A885CA /* lost-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lost-hd.png"; sourceTree = "<group>"; };
 		92AE53D31BA13DC400A885CA /* lost.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lost.fnt; sourceTree = "<group>"; };
@@ -762,12 +776,26 @@
 		929945191BAF569F0055E975 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				9299452A1BAF6D3E0055E975 /* naturesounds.mp3 */,
 				929945221BAF56D60055E975 /* arrow_shot.wav */,
 				929945231BAF56D60055E975 /* bird_hit.mp3 */,
 				929945241BAF56D60055E975 /* lose.wav */,
 				929945251BAF56D60055E975 /* win.wav */,
 			);
 			name = Sound;
+			sourceTree = "<group>";
+		};
+		9299452C1BAF6E460055E975 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				9299452D1BAF6E690055E975 /* track_0.mp3 */,
+				9299452E1BAF6E690055E975 /* track_1.mp3 */,
+				9299452F1BAF6E690055E975 /* track_2.mp3 */,
+				929945301BAF6E690055E975 /* track_3.mp3 */,
+				929945311BAF6E690055E975 /* track_4.mp3 */,
+				929945321BAF6E690055E975 /* track_5.mp3 */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 		92AE53CE1BA13DA800A885CA /* Fonts */ = {
@@ -917,6 +945,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9299452C1BAF6E460055E975 /* Music */,
 				929945191BAF569F0055E975 /* Sound */,
 				92D019391BAB74C300C4AE47 /* Sun */,
 				92896FC31BA62E29000E1810 /* Campfile */,
@@ -1145,6 +1174,7 @@
 				92896FA51BA6213C000E1810 /* Exploding_Coconut_27-hd.png in Resources */,
 				92896F9D1BA6213C000E1810 /* Exploding_Coconut_23-hd.png in Resources */,
 				92896F971BA6213C000E1810 /* Exploding_Coconut_20-hd.png in Resources */,
+				929945381BAF6E690055E975 /* track_5.mp3 in Resources */,
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				92AE53E01BA13DC400A885CA /* lost.png in Resources */,
 				92896FA91BA6213C000E1810 /* Exploding_Coconut_29-hd.png in Resources */,
@@ -1167,6 +1197,7 @@
 				92896FB31BA6213C000E1810 /* Exploding_Coconut_34-hd.png in Resources */,
 				92896F801BA6213C000E1810 /* Exploding_Coconut_8.png in Resources */,
 				92896FA61BA6213C000E1810 /* Exploding_Coconut_27.png in Resources */,
+				929945341BAF6E690055E975 /* track_1.mp3 in Resources */,
 				92896FC71BA62E40000E1810 /* campfire.png in Resources */,
 				92896FAA1BA6213C000E1810 /* Exploding_Coconut_29.png in Resources */,
 				92896F811BA6213C000E1810 /* Exploding_Coconut_9-hd.png in Resources */,
@@ -1214,6 +1245,7 @@
 				92AE53E31BA13DC400A885CA /* points.fnt in Resources */,
 				92896F731BA6213C000E1810 /* Exploding_Coconut_2-hd.png in Resources */,
 				92896F861BA6213C000E1810 /* Exploding_Coconut_11.png in Resources */,
+				929945371BAF6E690055E975 /* track_4.mp3 in Resources */,
 				92896F851BA6213C000E1810 /* Exploding_Coconut_11-hd.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
@@ -1222,6 +1254,7 @@
 				92896F791BA6213C000E1810 /* Exploding_Coconut_5-hd.png in Resources */,
 				92AE53DF1BA13DC400A885CA /* lost.fnt in Resources */,
 				92896F8D1BA6213C000E1810 /* Exploding_Coconut_15-hd.png in Resources */,
+				929945361BAF6E690055E975 /* track_3.mp3 in Resources */,
 				92896FA01BA6213C000E1810 /* Exploding_Coconut_24.png in Resources */,
 				92896F981BA6213C000E1810 /* Exploding_Coconut_20.png in Resources */,
 				92896FB01BA6213C000E1810 /* Exploding_Coconut_32.png in Resources */,
@@ -1234,11 +1267,13 @@
 				929945271BAF56D60055E975 /* bird_hit.mp3 in Resources */,
 				92E58BC21B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png in Resources */,
 				92896F9C1BA6213C000E1810 /* Exploding_Coconut_22.png in Resources */,
+				929945351BAF6E690055E975 /* track_2.mp3 in Resources */,
 				92896FAF1BA6213C000E1810 /* Exploding_Coconut_32-hd.png in Resources */,
 				92896F771BA6213C000E1810 /* Exploding_Coconut_4-hd.png in Resources */,
 				92896FB41BA6213C000E1810 /* Exploding_Coconut_34.png in Resources */,
 				92896FAE1BA6213C000E1810 /* Exploding_Coconut_31.png in Resources */,
 				92896F841BA6213C000E1810 /* Exploding_Coconut_10.png in Resources */,
+				9299452B1BAF6D3E0055E975 /* naturesounds.mp3 in Resources */,
 				92896FAC1BA6213C000E1810 /* Exploding_Coconut_30.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 				92AE53E41BA13DC400A885CA /* points.png in Resources */,
@@ -1254,6 +1289,7 @@
 				92896F8B1BA6213C000E1810 /* Exploding_Coconut_14-hd.png in Resources */,
 				92896FA81BA6213C000E1810 /* Exploding_Coconut_28.png in Resources */,
 				92896F9F1BA6213C000E1810 /* Exploding_Coconut_24-hd.png in Resources */,
+				929945331BAF6E690055E975 /* track_0.mp3 in Resources */,
 				92896F741BA6213C000E1810 /* Exploding_Coconut_2.png in Resources */,
 				92896F7F1BA6213C000E1810 /* Exploding_Coconut_8-hd.png in Resources */,
 			);

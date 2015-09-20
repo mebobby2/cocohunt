@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@import AVFoundation.AVAudioPlayer;
 
-@interface AudioManager : NSObject
+@interface AudioManager : NSObject <AVAudioPlayerDelegate>
 -(void)playSoundEffect:(NSString*)soundFile;
+-(void)playBackgroundSound:(NSString*)soundFile;
+-(void)playMusic;
+-(void)stopMusic;
 +(instancetype)sharedAudioManager;
 @end

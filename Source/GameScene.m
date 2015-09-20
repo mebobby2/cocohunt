@@ -104,6 +104,8 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     [self initializeControls];
     [self startFire];
     //[self createTheSun];
+    //[[AudioManager sharedAudioManager] playBackgroundSound:@"naturesounds.mp3"];
+    [[AudioManager sharedAudioManager] playMusic];
 }
 
 -(void)startFire {
@@ -220,12 +222,14 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
 }
 
 -(void)lost {
+    [[AudioManager sharedAudioManager] stopMusic];
     [[AudioManager sharedAudioManager] playSoundEffect:@"lose.wav"];
     self.gameState = GameStateLost;
     [self displayWinLoseLabelWithText:@"You lose!" andFont:@"lost.fnt"];
 }
 
 -(void)won {
+    [[AudioManager sharedAudioManager] stopMusic];
     [[AudioManager sharedAudioManager] playSoundEffect:@"win.wav"];
     self.gameState = GameStateWon;
     [self displayWinLoseLabelWithText:@"You win!" andFont:@"win.fnt"];
