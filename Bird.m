@@ -147,7 +147,7 @@
         [self displayPoints:score];
         [self animateFall];
         [self explodeFeathers];
-        [[AudioManager sharedAudioManager] playSoundEffect:kSoundBirdHit];
+        [[AudioManager sharedAudioManager] playSoundEffect:kSoundBirdHit withPosition:self.position];
     } else {
         self.birdState = BirdStateFlewOut;
          [self removeFromParentAndCleanup:YES];

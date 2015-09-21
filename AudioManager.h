@@ -17,6 +17,7 @@
 
 @interface AudioManager : NSObject <AVAudioPlayerDelegate>
 -(void)playSoundEffect:(NSString*)soundFile;
+-(void)playSoundEffect:(NSString *)soundFile withPosition:(CGPoint)pos;
 -(void)playBackgroundSound:(NSString*)soundFile;
 -(void)playMusic;
 -(void)stopMusic;

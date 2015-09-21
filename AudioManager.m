@@ -87,6 +87,14 @@
     [[OALSimpleAudio sharedInstance] playEffect:soundFile];
 }
 
+-(void)playSoundEffect:(NSString *)soundFile withPosition:(CGPoint)pos {
+    float pan = pos.x / [CCDirector sharedDirector].viewSize.width;
+    pan = clampf(pan, 0.0f, 1.0f);
+    pan = pan * 2.0f - 1.0f;
+    
+    [[OALSimpleAudio sharedInstance] playEffect:soundFile volume:1.0 pitch:1.0 pan:pan loop:NO];
+}
+
 -(void)playBackgroundSound:(NSString *)soundFile {
     [[OALSimpleAudio sharedInstance] playBg:soundFile loop:YES];
 }
