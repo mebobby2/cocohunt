@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 @import AVFoundation.AVAudioPlayer;
 
+#define kSoundArrowShot @"arrow_shot.wav"
+#define kSoundBirdHit @"bird_hit.mp3"
+#define kSoundWin @"win.wav"
+#define kSoundArrowLose @"lose.wav"
+
+
 @interface AudioManager : NSObject <AVAudioPlayerDelegate>
 -(void)playSoundEffect:(NSString*)soundFile;
 -(void)playBackgroundSound:(NSString*)soundFile;
 -(void)playMusic;
 -(void)stopMusic;
+-(void)preloadSoundEffects;
 +(instancetype)sharedAudioManager;
 @end

@@ -223,14 +223,14 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
 
 -(void)lost {
     [[AudioManager sharedAudioManager] stopMusic];
-    [[AudioManager sharedAudioManager] playSoundEffect:@"lose.wav"];
+    [[AudioManager sharedAudioManager] playSoundEffect:kSoundArrowLose];
     self.gameState = GameStateLost;
     [self displayWinLoseLabelWithText:@"You lose!" andFont:@"lost.fnt"];
 }
 
 -(void)won {
     [[AudioManager sharedAudioManager] stopMusic];
-    [[AudioManager sharedAudioManager] playSoundEffect:@"win.wav"];
+    [[AudioManager sharedAudioManager] playSoundEffect:kSoundWin];
     self.gameState = GameStateWon;
     [self displayWinLoseLabelWithText:@"You win!" andFont:@"win.fnt"];
 }

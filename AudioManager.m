@@ -13,6 +13,7 @@
 @property (strong) NSArray *musicFiles;
 @property (strong) OALAudioTrack *currentTrack;
 @property (strong) OALAudioTrack *nextTrack;
+@property (strong) NSArray* soundEffects;
 
 @end
 
@@ -23,8 +24,17 @@
         self.musicFiles = @[@"track_0.mp3", @"track_1.mp3", @"track_2.mp3", @"track_3.mp3", @"track_4.mp3", @"track_5.mp3"];
         self.currentTrack = nil;
         self.nextTrack = nil;
+        self.soundEffects = @[kSoundArrowShot, kSoundBirdHit, kSoundArrowLose, kSoundWin];
     }
     return self;
+}
+
+-(void)preloadSoundEffects {
+    for (NSString *sound in self.soundEffects) {
+        [[OALSimpleAudio sharedInstance] preloadEffect:sound reduceToMono:NO completionBlock:^(ALBuffer *b) {
+            NSLog(@"Sound %@ Preloaded", sound);
+        }];
+    }
 }
 
 -(void)playMusic {

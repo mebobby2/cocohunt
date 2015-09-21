@@ -8,6 +8,7 @@
 
 #import "IntroScene.h"
 #import "GameScene.h"
+#import "AudioManager.h"
 
 @interface IntroScene()
 
@@ -30,6 +31,8 @@
 -(void)onEnter {
     [super onEnter];
     [self animateCoconutExplosion];
+    
+    [[AudioManager sharedAudioManager] preloadSoundEffects];
 }
 
 -(void)animateCoconutExplosion {
