@@ -7,8 +7,8 @@
 //
 
 #import "IntroScene.h"
-#import "GameScene.h"
 #import "AudioManager.h"
+#import "MenuScene.h"
 
 @interface IntroScene()
 
@@ -54,7 +54,7 @@
 }
 
 -(void)proceedToGameScene {
-    [[CCDirector sharedDirector] replaceScene:[[GameScene alloc] init]];
+    [[CCDirector sharedDirector] replaceScene:[[MenuScene alloc] init]];
 }
 
 @end
