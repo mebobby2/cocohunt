@@ -8,6 +8,9 @@
 
 #import "AudioManager.h"
 
+#define kSoundKey @"AudioManager_Sound"
+#define kMusicKey @"AudioManager_Music"
+
 @interface AudioManager()
 
 @property (strong) NSArray *musicFiles;
@@ -26,10 +29,18 @@
         self.nextTrack = nil;
         self.soundEffects = @[kSoundArrowShot, kSoundBirdHit, kSoundArrowLose, kSoundWin];
         
-        _isSoundEnabled = YES;
-        _isSoundEnabled = YES;
+        [self loadSettings];
     }
     return self;
+}
+
+-(void)loadSettings {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *audioDefaults = @{kSoundKey: @YES, kMusicKey: @YES};
+    [userDefaults registerDefaults:audioDefaults];
+    
+    _isSoundEnabled = [userDefaults boolForKey:kSoundKey];
+    _isMusicEnabled = [userDefaults boolForKey:kMusicKey];
 }
 
 -(void)preloadSoundEffects {
@@ -45,10 +56,16 @@
     if (!_isMusicEnabled && self.currentTrack) {
         [self stopMusic];
     }
+    
+    [[NSUserDefaults standardUserDefaults] setBool:_isMusicEnabled forKey:kMusicKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)toggleSound {
     _isSoundEnabled = !_isSoundEnabled;
+    
+    [[NSUserDefaults standardUserDefaults] setBool:_isSoundEnabled forKey:kSoundKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)playMusic {
