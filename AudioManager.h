@@ -16,11 +16,15 @@
 
 
 @interface AudioManager : NSObject <AVAudioPlayerDelegate>
+@property (nonatomic, readonly) BOOL isSoundEnabled;
+@property (nonatomic, readonly) BOOL isMusicEnabled;
 -(void)playSoundEffect:(NSString*)soundFile;
 -(void)playSoundEffect:(NSString *)soundFile withPosition:(CGPoint)pos;
 -(void)playBackgroundSound:(NSString*)soundFile;
 -(void)playMusic;
 -(void)stopMusic;
 -(void)preloadSoundEffects;
+-(void)toggleSound;
+-(void)toggleMusic;
 +(instancetype)sharedAudioManager;
 @end

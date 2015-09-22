@@ -25,6 +25,9 @@
         self.currentTrack = nil;
         self.nextTrack = nil;
         self.soundEffects = @[kSoundArrowShot, kSoundBirdHit, kSoundArrowLose, kSoundWin];
+        
+        _isSoundEnabled = YES;
+        _isSoundEnabled = YES;
     }
     return self;
 }
@@ -37,7 +40,21 @@
     }
 }
 
+-(void)toggleMusic {
+    _isMusicEnabled = !_isMusicEnabled;
+    if (!_isMusicEnabled && self.currentTrack) {
+        [self stopMusic];
+    }
+}
+
+-(void)toggleSound {
+    _isSoundEnabled = !_isSoundEnabled;
+}
+
 -(void)playMusic {
+    if (!_isMusicEnabled)
+        return;
+    
     if (self.currentTrack) {
         NSLog(@"The music is already playing");
         return;
@@ -84,10 +101,16 @@
 }
 
 -(void)playSoundEffect:(NSString *)soundFile {
+    if (!_isSoundEnabled)
+        return;
+    
     [[OALSimpleAudio sharedInstance] playEffect:soundFile];
 }
 
 -(void)playSoundEffect:(NSString *)soundFile withPosition:(CGPoint)pos {
+    if (!_isSoundEnabled)
+        return;
+    
     float pan = pos.x / [CCDirector sharedDirector].viewSize.width;
     pan = clampf(pan, 0.0f, 1.0f);
     pan = pan * 2.0f - 1.0f;

@@ -8,10 +8,13 @@
 
 #import "MenuScene.h"
 #import "GameScene.h"
+#import "AudioManager.h"
 
 @interface MenuScene()
 
 @property (nonatomic) CCLayoutBox *menu;
+@property (nonatomic) CCButton* btnSoundToggle;
+@property (nonatomic) CCButton* btnMusicToggle;
 
 @end
 
@@ -21,6 +24,7 @@
     if (self = [super init]) {
         [self addBackground];
         [self addMenuButtons];
+        [self addAudioButtons];
     }
     return self;
 }
@@ -70,6 +74,36 @@
     self.menu.position = ccp(0.5f, 0.5f);
     
     [self addChild:self.menu];
+}
+
+-(void)addAudioButtons {
+    CCSpriteFrame *soundOnImage = [CCSpriteFrame frameWithImageNamed:@"btn_sound.png"];
+    CCSpriteFrame *soundOffImage =  [CCSpriteFrame frameWithImageNamed:@"btn_sound_pressed.png"];
+    self.btnSoundToggle = [CCButton buttonWithTitle:nil spriteFrame:soundOnImage highlightedSpriteFrame:soundOffImage disabledSpriteFrame:nil];
+    self.btnSoundToggle.togglesSelectedState = YES;
+    self.btnSoundToggle.selected = [AudioManager sharedAudioManager].isSoundEnabled;
+    self.btnSoundToggle.block = ^(id sender) {
+        [[AudioManager sharedAudioManager] toggleSound];
+    };
+    self.btnSoundToggle.positionType = CCPositionTypeNormalized;
+    self.btnSoundToggle.position = ccp(0.95f, 0.1f);
+    [self addChild:self.btnSoundToggle];
+    
+    CCSpriteFrame *musicOnImage = [CCSpriteFrame frameWithImageNamed:@"btn_music.png"];
+    CCSpriteFrame *musicOffImage =  [CCSpriteFrame frameWithImageNamed:@"btn_music_pressed.png"];
+    self.btnMusicToggle = [CCButton buttonWithTitle:nil spriteFrame:musicOnImage highlightedSpriteFrame:musicOffImage disabledSpriteFrame:nil];
+    self.btnMusicToggle.togglesSelectedState = YES;
+    self.btnMusicToggle.selected = [AudioManager sharedAudioManager].isMusicEnabled;
+    self.btnMusicToggle.block = ^(id sender) {
+        [[AudioManager sharedAudioManager] toggleMusic];
+    };
+    float musicButtonOffset = self.btnSoundToggle.boundingBox.size.width + 10;
+    CGPoint soundButtonPosInPoints = self.btnSoundToggle.positionInPoints;
+    
+    self.btnMusicToggle.positionType = CCPositionTypeMake(CCPositionUnitPoints, CCPositionUnitNormalized, CCPositionReferenceCornerBottomLeft);
+    self.btnMusicToggle.position = ccp(soundButtonPosInPoints.x - musicButtonOffset, 0.1f);
+    [self addChild:self.btnMusicToggle];
+    
 }
 
 -(void)btnStartTapped:(id)sender {
