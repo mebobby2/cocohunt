@@ -26,12 +26,10 @@
 }
 
 -(void)addBackground {
-    //CGSize viewSize = [CCDirector sharedDirector].viewSize;
-    
     CCSprite *bg = [CCSprite spriteWithImageNamed:@"menu_bg.png"];
     bg.positionType = CCPositionTypeMake(CCPositionUnitNormalized, CCPositionUnitNormalized, CCPositionReferenceCornerBottomLeft);
     bg.position = ccp(0.5f, 0.5f);
-    //bg.scaleX = 1.2f;
+    bg.scaleX = 1.2f;
     [self addChild:bg];
 }
 
