@@ -66,7 +66,7 @@
     [self.menu layout];
     
     self.menu.anchorPoint = ccp(0.5f, 0.5f);
-    self.positionType = CCPositionTypeMake(CCPositionUnitNormalized, CCPositionUnitNormalized, CCPositionReferenceCornerBottomLeft);
+    self.menu.positionType = CCPositionTypeMake(CCPositionUnitNormalized, CCPositionUnitNormalized, CCPositionReferenceCornerBottomLeft);
     self.menu.position = ccp(0.5f, 0.5f);
     
     [self addChild:self.menu];
