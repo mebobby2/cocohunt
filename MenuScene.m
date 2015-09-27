@@ -9,6 +9,7 @@
 #import "MenuScene.h"
 #import "GameScene.h"
 #import "AudioManager.h"
+#import "AboutScene.h"
 
 @interface MenuScene()
 
@@ -112,7 +113,9 @@
 }
 
 -(void)btnAboutTapped:(id)sender {
-    CCLOG(@"About Tapped");
+    AboutScene *aboutScene = [[AboutScene alloc] init];
+    CCTransition *aboutTransition = [CCTransition transitionCrossFadeWithDuration:1.0f];
+    [[CCDirector sharedDirector] pushScene:aboutScene withTransition:aboutTransition];
 }
 
 -(void)btnHighscoresTapped:(id)sender {
