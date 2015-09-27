@@ -24,6 +24,7 @@
     CCSprite *bg = [CCSprite spriteWithImageNamed:@"about_bg.png"];
     bg.positionType = CCPositionTypeNormalized;
     bg.position = ccp(0.5f, 0.5f);
+    bg.scaleX = 1.2f;
     [self addChild:bg];
 }
 
