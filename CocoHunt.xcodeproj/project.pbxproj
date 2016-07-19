@@ -44,6 +44,8 @@
 		7A97911719E631C6001FFC4D /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A97910419E62E40001FFC4D /* libcocos2d-mac.a */; };
 		7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9790FE19E62E40001FFC4D /* libcocos2d.a */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
+		9226802C1D3A1C4800CDE989 /* HighscoresScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802B1D3A1C4800CDE989 /* HighscoresScene.m */; };
+		9226802F1D3A1C6500CDE989 /* LevelSelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802E1D3A1C6500CDE989 /* LevelSelectScene.m */; };
 		9250EC751BA0F0220022287F /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC741BA0F0220022287F /* HUDLayer.m */; };
 		9250EC7B1BA0F8890022287F /* GameStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC7A1BA0F8890022287F /* GameStats.m */; };
 		92601DD31BB0E61400E9E30D /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92601DD21BB0E61400E9E30D /* MenuScene.m */; };
@@ -201,6 +203,16 @@
 		92AE53E61BA13DC400A885CA /* win-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53DA1BA13DC400A885CA /* win-hd.png */; };
 		92AE53E71BA13DC400A885CA /* win.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53DB1BA13DC400A885CA /* win.fnt */; };
 		92AE53E81BA13DC400A885CA /* win.png in Resources */ = {isa = PBXBuildFile; fileRef = 92AE53DC1BA13DC400A885CA /* win.png */; };
+		92C3EC5D1D3E5BBB0026BE4D /* highscores_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC591D3E5BBB0026BE4D /* highscores_bg-hd.png */; };
+		92C3EC5E1D3E5BBB0026BE4D /* highscores_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC5A1D3E5BBB0026BE4D /* highscores_bg.png */; };
+		92C3EC5F1D3E5BBB0026BE4D /* table_cell_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC5B1D3E5BBB0026BE4D /* table_cell_bg-hd.png */; };
+		92C3EC601D3E5BBB0026BE4D /* table_cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC5C1D3E5BBB0026BE4D /* table_cell_bg.png */; };
+		92C3EC681D3E5BD60026BE4D /* dodging_level-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC621D3E5BD60026BE4D /* dodging_level-hd.png */; };
+		92C3EC691D3E5BD60026BE4D /* dodging_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC631D3E5BD60026BE4D /* dodging_level.png */; };
+		92C3EC6A1D3E5BD60026BE4D /* hunting_level-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC641D3E5BD60026BE4D /* hunting_level-hd.png */; };
+		92C3EC6B1D3E5BD60026BE4D /* hunting_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC651D3E5BD60026BE4D /* hunting_level.png */; };
+		92C3EC6C1D3E5BD60026BE4D /* level_select_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC661D3E5BD60026BE4D /* level_select_bg-hd.png */; };
+		92C3EC6D1D3E5BD60026BE4D /* level_select_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC671D3E5BD60026BE4D /* level_select_bg.png */; };
 		92D0193D1BAB74CE00C4AE47 /* sun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92D0193C1BAB74CE00C4AE47 /* sun.plist */; };
 		92E58BC11B9CEFF900F0B51E /* game_scene_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BBE1B9CEFF900F0B51E /* game_scene_bg-hd.png */; };
 		92E58BC21B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BBF1B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png */; };
@@ -320,6 +332,10 @@
 		7AFCD5DD19E9BDC200BCCCDA /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Source/Bridging-Header.h"; sourceTree = "<group>"; };
 		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		9226802A1D3A1C4800CDE989 /* HighscoresScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresScene.h; sourceTree = "<group>"; };
+		9226802B1D3A1C4800CDE989 /* HighscoresScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresScene.m; sourceTree = "<group>"; };
+		9226802D1D3A1C6500CDE989 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
+		9226802E1D3A1C6500CDE989 /* LevelSelectScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectScene.m; sourceTree = "<group>"; };
 		9250EC731BA0F0220022287F /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
 		9250EC741BA0F0220022287F /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		9250EC791BA0F8890022287F /* GameStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStats.h; sourceTree = "<group>"; };
@@ -465,6 +481,16 @@
 		92AE53DA1BA13DC400A885CA /* win-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "win-hd.png"; sourceTree = "<group>"; };
 		92AE53DB1BA13DC400A885CA /* win.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = win.fnt; sourceTree = "<group>"; };
 		92AE53DC1BA13DC400A885CA /* win.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = win.png; sourceTree = "<group>"; };
+		92C3EC591D3E5BBB0026BE4D /* highscores_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highscores_bg-hd.png"; sourceTree = "<group>"; };
+		92C3EC5A1D3E5BBB0026BE4D /* highscores_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highscores_bg.png; sourceTree = "<group>"; };
+		92C3EC5B1D3E5BBB0026BE4D /* table_cell_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table_cell_bg-hd.png"; sourceTree = "<group>"; };
+		92C3EC5C1D3E5BBB0026BE4D /* table_cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_cell_bg.png; sourceTree = "<group>"; };
+		92C3EC621D3E5BD60026BE4D /* dodging_level-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dodging_level-hd.png"; sourceTree = "<group>"; };
+		92C3EC631D3E5BD60026BE4D /* dodging_level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodging_level.png; sourceTree = "<group>"; };
+		92C3EC641D3E5BD60026BE4D /* hunting_level-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hunting_level-hd.png"; sourceTree = "<group>"; };
+		92C3EC651D3E5BD60026BE4D /* hunting_level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hunting_level.png; sourceTree = "<group>"; };
+		92C3EC661D3E5BD60026BE4D /* level_select_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "level_select_bg-hd.png"; sourceTree = "<group>"; };
+		92C3EC671D3E5BD60026BE4D /* level_select_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_select_bg.png; sourceTree = "<group>"; };
 		92D0193C1BAB74CE00C4AE47 /* sun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sun.plist; sourceTree = "<group>"; };
 		92E58BBE1B9CEFF900F0B51E /* game_scene_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_scene_bg-hd.png"; sourceTree = "<group>"; };
 		92E58BBF1B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game_scene_bg-iphone5hd.png"; sourceTree = "<group>"; };
@@ -940,6 +966,30 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		92C3EC561D3E5BAB0026BE4D /* Highscores */ = {
+			isa = PBXGroup;
+			children = (
+				92C3EC591D3E5BBB0026BE4D /* highscores_bg-hd.png */,
+				92C3EC5A1D3E5BBB0026BE4D /* highscores_bg.png */,
+				92C3EC5B1D3E5BBB0026BE4D /* table_cell_bg-hd.png */,
+				92C3EC5C1D3E5BBB0026BE4D /* table_cell_bg.png */,
+			);
+			name = Highscores;
+			sourceTree = "<group>";
+		};
+		92C3EC611D3E5BC50026BE4D /* LevelSelect */ = {
+			isa = PBXGroup;
+			children = (
+				92C3EC621D3E5BD60026BE4D /* dodging_level-hd.png */,
+				92C3EC631D3E5BD60026BE4D /* dodging_level.png */,
+				92C3EC641D3E5BD60026BE4D /* hunting_level-hd.png */,
+				92C3EC651D3E5BD60026BE4D /* hunting_level.png */,
+				92C3EC661D3E5BD60026BE4D /* level_select_bg-hd.png */,
+				92C3EC671D3E5BD60026BE4D /* level_select_bg.png */,
+			);
+			name = LevelSelect;
+			sourceTree = "<group>";
+		};
 		92D019391BAB74C300C4AE47 /* Sun */ = {
 			isa = PBXGroup;
 			children = (
@@ -961,6 +1011,10 @@
 				92601DD21BB0E61400E9E30D /* MenuScene.m */,
 				92A87CEF1BB875A4009A4625 /* AboutScene.h */,
 				92A87CF01BB875A4009A4625 /* AboutScene.m */,
+				9226802A1D3A1C4800CDE989 /* HighscoresScene.h */,
+				9226802B1D3A1C4800CDE989 /* HighscoresScene.m */,
+				9226802D1D3A1C6500CDE989 /* LevelSelectScene.h */,
+				9226802E1D3A1C6500CDE989 /* LevelSelectScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1072,6 +1126,8 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92C3EC611D3E5BC50026BE4D /* LevelSelect */,
+				92C3EC561D3E5BAB0026BE4D /* Highscores */,
 				92A87CD81BB87570009A4625 /* About */,
 				92601DF31BB105D300E9E30D /* SoundButtons */,
 				92601DD61BB0F83C00E9E30D /* Menu */,
@@ -1312,8 +1368,10 @@
 				92A87CEA1BB87585009A4625 /* btn_9slice.png in Resources */,
 				92896F9E1BA6213C000E1810 /* Exploding_Coconut_23.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
+				92C3EC601D3E5BBB0026BE4D /* table_cell_bg.png in Resources */,
 				92896F7C1BA6213C000E1810 /* Exploding_Coconut_6.png in Resources */,
 				92E58BE71B9D43B300F0B51E /* Cocohunt-hd.plist in Resources */,
+				92C3EC691D3E5BD60026BE4D /* dodging_level.png in Resources */,
 				92896F8A1BA6213C000E1810 /* Exploding_Coconut_13.png in Resources */,
 				92896FB21BA6213C000E1810 /* Exploding_Coconut_33.png in Resources */,
 				92601DF11BB0F85700E9E30D /* menu_bg-hd.png in Resources */,
@@ -1328,6 +1386,7 @@
 				92896F891BA6213C000E1810 /* Exploding_Coconut_13-hd.png in Resources */,
 				92896FC21BA62C37000E1810 /* feather.png in Resources */,
 				92AE53E61BA13DC400A885CA /* win-hd.png in Resources */,
+				92C3EC5E1D3E5BBB0026BE4D /* highscores_bg.png in Resources */,
 				92896FB31BA6213C000E1810 /* Exploding_Coconut_34-hd.png in Resources */,
 				92896F801BA6213C000E1810 /* Exploding_Coconut_8.png in Resources */,
 				92896FA61BA6213C000E1810 /* Exploding_Coconut_27.png in Resources */,
@@ -1382,15 +1441,18 @@
 				92896F8F1BA6213C000E1810 /* Exploding_Coconut_16-hd.png in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
+				92C3EC5D1D3E5BBB0026BE4D /* highscores_bg-hd.png in Resources */,
 				92896F941BA6213C000E1810 /* Exploding_Coconut_18.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				92E58BC31B9CEFF900F0B51E /* game_scene_bg.png in Resources */,
 				929945291BAF56D60055E975 /* win.wav in Resources */,
+				92C3EC5F1D3E5BBB0026BE4D /* table_cell_bg-hd.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				92AE53E31BA13DC400A885CA /* points.fnt in Resources */,
 				92896F731BA6213C000E1810 /* Exploding_Coconut_2-hd.png in Resources */,
 				92896F861BA6213C000E1810 /* Exploding_Coconut_11.png in Resources */,
 				92601E021BB105EA00E9E30D /* btn_sound-hd.png in Resources */,
+				92C3EC6C1D3E5BD60026BE4D /* level_select_bg-hd.png in Resources */,
 				92601DEC1BB0F85700E9E30D /* btn_highscores.png in Resources */,
 				929945371BAF6E690055E975 /* track_4.mp3 in Resources */,
 				92896F851BA6213C000E1810 /* Exploding_Coconut_11-hd.png in Resources */,
@@ -1420,6 +1482,7 @@
 				92A87CEB1BB87585009A4625 /* btn_back_pressed-hd.png in Resources */,
 				92896F9C1BA6213C000E1810 /* Exploding_Coconut_22.png in Resources */,
 				929945351BAF6E690055E975 /* track_2.mp3 in Resources */,
+				92C3EC6B1D3E5BD60026BE4D /* hunting_level.png in Resources */,
 				92601DEF1BB0F85700E9E30D /* btn_start-hd.png in Resources */,
 				92896FAF1BA6213C000E1810 /* Exploding_Coconut_32-hd.png in Resources */,
 				92896F771BA6213C000E1810 /* Exploding_Coconut_4-hd.png in Resources */,
@@ -1441,8 +1504,11 @@
 				92896FBA1BA621C4000E1810 /* Default@2x.png in Resources */,
 				92AE53E21BA13DC400A885CA /* points-hd.png in Resources */,
 				92896FAD1BA6213C000E1810 /* Exploding_Coconut_31-hd.png in Resources */,
+				92C3EC6D1D3E5BD60026BE4D /* level_select_bg.png in Resources */,
 				92A87CEC1BB87585009A4625 /* btn_back_pressed.png in Resources */,
+				92C3EC681D3E5BD60026BE4D /* dodging_level-hd.png in Resources */,
 				92601DED1BB0F85700E9E30D /* btn_start_pressed-hd.png in Resources */,
+				92C3EC6A1D3E5BD60026BE4D /* hunting_level-hd.png in Resources */,
 				92AE53E81BA13DC400A885CA /* win.png in Resources */,
 				92601DE81BB0F85700E9E30D /* btn_about.png in Resources */,
 				92E58BC11B9CEFF900F0B51E /* game_scene_bg-hd.png in Resources */,
@@ -1529,6 +1595,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				929945161BAF54F30055E975 /* AudioManager.m in Sources */,
+				9226802F1D3A1C6500CDE989 /* LevelSelectScene.m in Sources */,
+				9226802C1D3A1C4800CDE989 /* HighscoresScene.m in Sources */,
 				92601DD31BB0E61400E9E30D /* MenuScene.m in Sources */,
 				92E58BE01B9D209000F0B51E /* Bird.m in Sources */,
 				92896FBD1BA621EA000E1810 /* IntroScene.m in Sources */,
