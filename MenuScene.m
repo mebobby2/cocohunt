@@ -10,6 +10,8 @@
 #import "GameScene.h"
 #import "AudioManager.h"
 #import "AboutScene.h"
+#import "LevelSelectScene.h"
+#import "HighscoresScene.h"
 
 @interface MenuScene()
 
@@ -108,18 +110,24 @@
 }
 
 -(void)btnStartTapped:(id)sender {
-    CCLOG(@"Start Tapped");
-    [[CCDirector sharedDirector] replaceScene:[[GameScene alloc] init] ];
+    LevelSelectScene *levelSelectScene = [[LevelSelectScene alloc] init];
+    //CCTransition *transition = [CCTransition transitionPushWithDirection:CCTransitionDirectionUp duration:1.0f];
+    //[[CCDirector sharedDirector] replaceScene: levelSelectScene withTransition:transition ];
+    [[CCDirector sharedDirector] replaceScene: levelSelectScene];
 }
 
 -(void)btnAboutTapped:(id)sender {
     AboutScene *aboutScene = [[AboutScene alloc] init];
-    CCTransition *aboutTransition = [CCTransition transitionCrossFadeWithDuration:1.0f];
-    [[CCDirector sharedDirector] pushScene:aboutScene withTransition:aboutTransition];
+   // CCTransition *aboutTransition = [CCTransition transitionCrossFadeWithDuration:1.0f];
+    //[[CCDirector sharedDirector] pushScene:aboutScene withTransition:aboutTransition];
+    [[CCDirector sharedDirector] pushScene:aboutScene];
 }
 
 -(void)btnHighscoresTapped:(id)sender {
-    CCLOG(@"Highscores Tapped");
+    HighscoresScene *hsScene = [[HighscoresScene alloc] init];
+//    CCTransition *transition = [CCTransition transitionPushWithDirection:CCTransitionDirectionDown duration:1.0f];
+    //[[CCDirector sharedDirector] replaceScene: hsScene withTransition:transition ];
+    [[CCDirector sharedDirector] replaceScene: hsScene];
 }
 
 @end

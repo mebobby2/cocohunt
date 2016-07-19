@@ -59,8 +59,9 @@
 }
 
 -(void)backTapped:(id) sender {
-    CCTransition *transition = [CCTransition transitionCrossFadeWithDuration:1.0f];
-    [[CCDirector sharedDirector] popSceneWithTransition:transition];
+    //CCTransition *transition = [CCTransition transitionCrossFadeWithDuration:1.0f];
+    //[[CCDirector sharedDirector] popSceneWithTransition:transition];
+    [[CCDirector sharedDirector] popScene];
 }
 
 -(void)addVisitWebsiteButton {
