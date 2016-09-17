@@ -12,6 +12,10 @@
 #import "cocos2d-ui.h"
 #import "MenuScene.h"
 
+#define kHighscoreRowHeight 32
+#define kHighscoreFontName @"Helvetica"
+#define kHighscoreFontSize 12
+
 @implementation HighscoresScene
 
 -(instancetype)init
@@ -20,6 +24,7 @@
     {
         [self addBackground];
         [self addBackButton];
+        [self addHighscoresTable];
     }
     
     return self;
@@ -54,6 +59,55 @@
     MenuScene *scene = [[MenuScene alloc] init];
     //[[CCDirector sharedDirector] replaceScene:scene withTransition:transition];
     [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+-(void)addHighscoresTable {
+    CCTableView *highscoresTable = [[CCTableView alloc] init];
+    highscoresTable.rowHeight = kHighscoreRowHeight;
+    highscoresTable.anchorPoint = ccp(0.5, 1.0f);
+    highscoresTable.positionType = CCPositionTypeNormalized;
+    highscoresTable.position = ccp(0.5f, 0.65f);
+    highscoresTable.contentSizeType = CCSizeTypeNormalized;
+    highscoresTable.contentSize = CGSizeMake(1, 0.4f);
+    
+    highscoresTable.userInteractionEnabled = NO;
+    
+    [self addChild:highscoresTable];
+    
+    highscoresTable.dataSource = self;
+}
+
+-(CCTableViewCell*)tableView:(CCTableView *)tableView nodeForRowAtIndex:(NSUInteger)index {
+    NSString *playerName = [NSString stringWithFormat:@"Player #%d", index];
+    int score = 100 - index;
+    
+    CCTableViewCell* cell = [[CCTableViewCell alloc] init];
+    cell.contentSizeType = CCSizeTypeMake(CCSizeUnitNormalized, CCSizeUnitPoints);
+    cell.contentSize = CGSizeMake(1, kHighscoreRowHeight);
+    
+    CCSprite *bg = [CCSprite spriteWithImageNamed:@"table_cell_bg.png"];
+    bg.positionType = CCPositionTypeNormalized;
+    bg.position = ccp(0.5f, 0.5f);
+    [cell addChild:bg];
+    
+    CCLabelTTF *lblPlayerName = [CCLabelTTF labelWithString:playerName fontName:kHighscoreFontName fontSize:kHighscoreFontSize];
+    lblPlayerName.positionType = CCPositionTypeNormalized;
+    lblPlayerName.position = ccp(0.05f, 0.5f);
+    lblPlayerName.anchorPoint = ccp(0, 0.5f);
+    [bg addChild:lblPlayerName];
+    
+    NSString *scoreString = [NSString stringWithFormat:@"%d pts.", score];
+    CCLabelTTF *lblScore = [CCLabelTTF labelWithString:scoreString fontName:kHighscoreFontName fontSize:kHighscoreFontSize];
+    lblScore.positionType = CCPositionTypeNormalized;
+    lblScore.position = ccp(0.95f, 0.5f);
+    lblScore.anchorPoint = ccp(1, 0.5f);
+    [bg addChild:lblScore];
+    
+    return cell;
+}
+
+-(NSUInteger)tableViewNumberOfRows:(CCTableView *)tableView {
+    return 5;
 }
 
 @end

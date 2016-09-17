@@ -7,7 +7,8 @@
 //
 
 #import "CCScene.h"
+#import "cocos2d-ui.h"
 
-@interface HighscoresScene : CCScene
+@interface HighscoresScene : CCScene<CCTableViewDataSource>
 
 @end
