@@ -1,5 +1,5 @@
 //
-//  PauseDialog.h
+//  LoadingScene.h
 //  CocoHunt
 //
 //  Created by Bobby Lei on 17/9/16.
@@ -8,8 +8,6 @@
 
 #import "CCScene.h"
 
-@interface PauseDialog : CCNode<UIAlertViewDelegate>
-
-@property (nonatomic, copy) void(^onCloseBlock)(void);
+@interface LoadingScene : CCScene
 
 @end

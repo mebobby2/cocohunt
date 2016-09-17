@@ -9,6 +9,8 @@
 #import "PauseDialog.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "LoadingScene.h"
+#import "MenuScene.h"
 
 @implementation PauseDialog
 
@@ -36,7 +38,7 @@
     [self addChild:bg];
     
     CCSpriteFrame *closeNormalImage = [CCSpriteFrame frameWithImageNamed:@"btn_close.png"];
-    CCSpriteFrame *closeHighlightedImage = [CCSpriteFrame frameWithImageNamed:@"btn_close_preaaed.png"];
+    CCSpriteFrame *closeHighlightedImage = [CCSpriteFrame frameWithImageNamed:@"btn_close_pressed.png"];
     CCButton *btnClose = [CCButton buttonWithTitle:nil spriteFrame:closeNormalImage highlightedSpriteFrame:closeHighlightedImage disabledSpriteFrame:nil];
     btnClose.positionType = CCPositionTypeNormalized;
     btnClose.position = ccp(1,1);
@@ -44,7 +46,7 @@
     [bg addChild:btnClose];
     
     CCSpriteFrame *restartNormalImage = [CCSpriteFrame frameWithImageNamed:@"btn_restart.png"];
-    CCSpriteFrame *restartHighlightedImage = [CCSpriteFrame frameWithImageNamed:@"btn_restart_preaaed.png"];
+    CCSpriteFrame *restartHighlightedImage = [CCSpriteFrame frameWithImageNamed:@"btn_restart_pressed.png"];
     CCButton *btnRestart = [CCButton buttonWithTitle:nil spriteFrame:restartNormalImage highlightedSpriteFrame:restartHighlightedImage disabledSpriteFrame:nil];
     btnRestart.positionType = CCPositionTypeNormalized;
     btnRestart.position = ccp(0.25f,0.2f);
@@ -52,7 +54,7 @@
     [bg addChild:btnRestart];
     
     CCSpriteFrame *exitNormalImage = [CCSpriteFrame frameWithImageNamed:@"btn_exit.png"];
-    CCSpriteFrame *exitHighlightedImage = [CCSpriteFrame frameWithImageNamed:@"btn_exit_preaaed.png"];
+    CCSpriteFrame *exitHighlightedImage = [CCSpriteFrame frameWithImageNamed:@"btn_exit_pressed.png"];
     CCButton *btnExit = [CCButton buttonWithTitle:nil spriteFrame:exitNormalImage highlightedSpriteFrame:exitHighlightedImage disabledSpriteFrame:nil];
     btnExit.positionType = CCPositionTypeNormalized;
     btnExit.position = ccp(0.75f,0.2f);
@@ -68,11 +70,23 @@
 }
 
 -(void)btnRestartTapped:(id)sender {
-    CCLOG(@"Restart");
+    LoadingScene *loadingScene = [[LoadingScene alloc] init];
+    //CCTransition *transition = [CCTransition transitionCrossFadeWithDuration:1.0f];
+    [[CCDirector sharedDirector] replaceScene:loadingScene];
 }
 
 -(void)btnExitTapped:(id)sender {
-    CCLOG(@"Exit");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Exit confirmation" message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+-(void)alertvView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"sdfsdfsdfsd");
+    if (buttonIndex == 1) {
+        CCLOG(@"2dsfsdfdsfdsfs221312");
+        MenuScene *menuScene = [[MenuScene alloc] init];
+        [[CCDirector sharedDirector] replaceScene:menuScene];
+    }
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event

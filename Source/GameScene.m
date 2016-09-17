@@ -113,6 +113,11 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     [[AudioManager sharedAudioManager] playMusic];
 }
 
+-(void)onExit {
+    [super onExit];
+    [[AudioManager sharedAudioManager] stopMusic];
+}
+
 -(void)startFire {
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     
