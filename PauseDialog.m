@@ -80,10 +80,8 @@
     [alert show];
 }
 
--(void)alertvView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"sdfsdfsdfsd");
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        CCLOG(@"2dsfsdfdsfdsfs221312");
         MenuScene *menuScene = [[MenuScene alloc] init];
         [[CCDirector sharedDirector] replaceScene:menuScene];
     }
