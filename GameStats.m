@@ -15,6 +15,7 @@
         self.score = 0;
         self.birdsLeft = 0;
         self.lives = 0;
+        self.timeSpent = 0;
     }
     
     return self;

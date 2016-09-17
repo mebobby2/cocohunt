@@ -5,6 +5,7 @@
 #import "PauseDialog.h"
 #import "cocos2d-ui.h"
 #include "AudioManager.h"
+#import "WinLoseDialog.h"
 @import CoreMotion;
 
 typedef NS_ENUM(NSUInteger, Z_ORDER){
@@ -163,6 +164,8 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     if (self.gameState != GameStatePlaying)
         return;
     
+    _gameStats.timeSpent += delta;
+    
     [self updateGyroAim];
     
     self.timeUntilNextBird -= delta;
@@ -236,6 +239,9 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     [[AudioManager sharedAudioManager] playSoundEffect:kSoundArrowLose];
     self.gameState = GameStateLost;
     [self displayWinLoseLabelWithText:@"You lose!" andFont:@"lost.fnt"];
+    
+    WinLoseDialog *wlDialog = [[WinLoseDialog alloc] initWithGameStats:_gameStats];
+    [self addChild:wlDialog];
 }
 
 -(void)won {
@@ -243,13 +249,16 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     [[AudioManager sharedAudioManager] playSoundEffect:kSoundWin];
     self.gameState = GameStateWon;
     [self displayWinLoseLabelWithText:@"You win!" andFont:@"win.fnt"];
+    
+    WinLoseDialog *wlDialog = [[WinLoseDialog alloc] initWithGameStats:_gameStats];
+    [self addChild:wlDialog];
 }
 
 -(void)displayWinLoseLabelWithText:(NSString*)text andFont:(NSString*)fontFileName {
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     CCLabelBMFont *label = [CCLabelBMFont labelWithString:text fntFile:fontFileName];
     
-    label.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.75f);
+    label.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.85f);
     
     [self addChild:label z:Z_LABELS];
     label.scale = 0.01f;
