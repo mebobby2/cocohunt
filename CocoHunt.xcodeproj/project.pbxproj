@@ -234,6 +234,7 @@
 		92BF3FFA1D8CD608001B448A /* win_lose_dialog_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92BF3FDE1D8CD608001B448A /* win_lose_dialog_bg.png */; };
 		92BF3FFD1D8CDD9D001B448A /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF3FFC1D8CDD9D001B448A /* LoadingScene.m */; };
 		92BF40001D8CEE9A001B448A /* WinLoseDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF3FFF1D8CEE9A001B448A /* WinLoseDialog.m */; };
+		92BF40031D8D2FB7001B448A /* HighscoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF40021D8D2FB7001B448A /* HighscoreManager.m */; };
 		92C3EC5D1D3E5BBB0026BE4D /* highscores_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC591D3E5BBB0026BE4D /* highscores_bg-hd.png */; };
 		92C3EC5E1D3E5BBB0026BE4D /* highscores_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC5A1D3E5BBB0026BE4D /* highscores_bg.png */; };
 		92C3EC5F1D3E5BBB0026BE4D /* table_cell_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC5B1D3E5BBB0026BE4D /* table_cell_bg-hd.png */; };
@@ -546,6 +547,8 @@
 		92BF3FFC1D8CDD9D001B448A /* LoadingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScene.m; sourceTree = "<group>"; };
 		92BF3FFE1D8CEE9A001B448A /* WinLoseDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinLoseDialog.h; sourceTree = "<group>"; };
 		92BF3FFF1D8CEE9A001B448A /* WinLoseDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinLoseDialog.m; sourceTree = "<group>"; };
+		92BF40011D8D2FB7001B448A /* HighscoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreManager.h; sourceTree = "<group>"; };
+		92BF40021D8D2FB7001B448A /* HighscoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreManager.m; sourceTree = "<group>"; };
 		92C3EC591D3E5BBB0026BE4D /* highscores_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highscores_bg-hd.png"; sourceTree = "<group>"; };
 		92C3EC5A1D3E5BBB0026BE4D /* highscores_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highscores_bg.png; sourceTree = "<group>"; };
 		92C3EC5B1D3E5BBB0026BE4D /* table_cell_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table_cell_bg-hd.png"; sourceTree = "<group>"; };
@@ -835,6 +838,8 @@
 				9250EC7A1BA0F8890022287F /* GameStats.m */,
 				929945141BAF54F30055E975 /* AudioManager.h */,
 				929945151BAF54F30055E975 /* AudioManager.m */,
+				92BF40011D8D2FB7001B448A /* HighscoreManager.h */,
+				92BF40021D8D2FB7001B448A /* HighscoreManager.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1736,6 +1741,7 @@
 				92BF3FC21D8CD396001B448A /* PauseDialog.m in Sources */,
 				92E58BE01B9D209000F0B51E /* Bird.m in Sources */,
 				92896FBD1BA621EA000E1810 /* IntroScene.m in Sources */,
+				92BF40031D8D2FB7001B448A /* HighscoreManager.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				92BF3FFD1D8CDD9D001B448A /* LoadingScene.m in Sources */,
 				92E58BC71B9CF6B800F0B51E /* Hunter.m in Sources */,

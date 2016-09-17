@@ -14,5 +14,6 @@
 @property (nonatomic, assign) int birdsLeft;
 @property (nonatomic, assign) int lives;
 @property (nonatomic, assign) float timeSpent;
+@property (nonatomic, assign) NSString* playerName;
 
 @end
