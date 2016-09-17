@@ -2,6 +2,8 @@
 #import "Hunter.h"
 #import "Bird.h"
 #import "HUDLayer.h"
+#import "PauseDialog.h"
+#import "cocos2d-ui.h"
 #include "AudioManager.h"
 @import CoreMotion;
 
@@ -9,7 +11,9 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
     Z_BACKGROUND,
     Z_MAIN,
     Z_LABELS,
-    Z_HUD
+    Z_HUD,
+    Z_PAUSE_BUTTON,
+    Z_DIALOGS
 };
 
 @interface GameScene()
@@ -47,6 +51,7 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
         [self setupAimingIndicator];
         [self initializeHUD];
         [self initializeStats];
+        [self addPauseButton];
     }
     
     return self;
@@ -383,6 +388,42 @@ typedef NS_ENUM(NSUInteger, Z_ORDER){
 
 -(void)addArrowToScene:(CCSprite *)arrow {
     [self addChild:arrow z:Z_MAIN];
+}
+
+-(void)addPauseButton {
+    CCSpriteFrame *pauseNormalImage = [CCSpriteFrame frameWithImageNamed:@"btn_pause.png"];
+    CCSpriteFrame *pauseHighlightedImage = [CCSpriteFrame frameWithImageNamed:@"btn_pause_pressed.png"];
+    
+    CCButton *btnPause = [CCButton buttonWithTitle:nil spriteFrame:pauseNormalImage highlightedSpriteFrame:pauseHighlightedImage disabledSpriteFrame:nil];
+    btnPause.positionType = CCPositionTypeNormalized;
+    btnPause.position = ccp(0.95f, 0.05f);
+    [btnPause setTarget:self selector:@selector(btnPauseTapped:)];
+    
+    [self addChild:btnPause z:Z_PAUSE_BUTTON];
+}
+
+-(void)btnPauseTapped:(id)sender {
+    if (_gameState != GameStatePlaying)
+        return;
+    
+    _gameState = GameStatePaused;
+    
+    for (Bird *bird in _birds)
+        bird.paused = YES;
+    
+    for (CCSprite *arrow in _arrows)
+        arrow.paused = YES;
+    
+    PauseDialog *dlg = [[PauseDialog alloc] init];
+    dlg.onCloseBlock = ^{
+        _gameState = GameStatePlaying;
+        for (Bird *bird in _birds)
+            bird.paused = NO;
+        
+        for (CCSprite *arrow in _arrows)
+            arrow.paused = NO;
+    };
+    [self addChild:dlg z:Z_DIALOGS];
 }
 
 @end
