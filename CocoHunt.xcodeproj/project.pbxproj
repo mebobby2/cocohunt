@@ -235,6 +235,7 @@
 		92BF3FFD1D8CDD9D001B448A /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF3FFC1D8CDD9D001B448A /* LoadingScene.m */; };
 		92BF40001D8CEE9A001B448A /* WinLoseDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF3FFF1D8CEE9A001B448A /* WinLoseDialog.m */; };
 		92BF40031D8D2FB7001B448A /* HighscoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF40021D8D2FB7001B448A /* HighscoreManager.m */; };
+		92BF40061D8D33F1001B448A /* HighscoreDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BF40051D8D33F1001B448A /* HighscoreDialog.m */; };
 		92C3EC5D1D3E5BBB0026BE4D /* highscores_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC591D3E5BBB0026BE4D /* highscores_bg-hd.png */; };
 		92C3EC5E1D3E5BBB0026BE4D /* highscores_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC5A1D3E5BBB0026BE4D /* highscores_bg.png */; };
 		92C3EC5F1D3E5BBB0026BE4D /* table_cell_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92C3EC5B1D3E5BBB0026BE4D /* table_cell_bg-hd.png */; };
@@ -549,6 +550,8 @@
 		92BF3FFF1D8CEE9A001B448A /* WinLoseDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinLoseDialog.m; sourceTree = "<group>"; };
 		92BF40011D8D2FB7001B448A /* HighscoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreManager.h; sourceTree = "<group>"; };
 		92BF40021D8D2FB7001B448A /* HighscoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreManager.m; sourceTree = "<group>"; };
+		92BF40041D8D33F1001B448A /* HighscoreDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreDialog.h; sourceTree = "<group>"; };
+		92BF40051D8D33F1001B448A /* HighscoreDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreDialog.m; sourceTree = "<group>"; };
 		92C3EC591D3E5BBB0026BE4D /* highscores_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highscores_bg-hd.png"; sourceTree = "<group>"; };
 		92C3EC5A1D3E5BBB0026BE4D /* highscores_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highscores_bg.png; sourceTree = "<group>"; };
 		92C3EC5B1D3E5BBB0026BE4D /* table_cell_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table_cell_bg-hd.png"; sourceTree = "<group>"; };
@@ -1039,6 +1042,34 @@
 		92BF3FBD1D8CD299001B448A /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
+				92BF3FC31D8CD608001B448A /* btn_close_pressed-hd.png */,
+				92BF3FC41D8CD608001B448A /* btn_close_pressed.png */,
+				92BF3FC51D8CD608001B448A /* btn_close-hd.png */,
+				92BF3FC61D8CD608001B448A /* btn_close.png */,
+				92BF3FC71D8CD608001B448A /* btn_exit_pressed-hd.png */,
+				92BF3FC81D8CD608001B448A /* btn_exit_pressed.png */,
+				92BF3FC91D8CD608001B448A /* btn_exit-hd.png */,
+				92BF3FCA1D8CD608001B448A /* btn_exit.png */,
+				92BF3FCB1D8CD608001B448A /* btn_ok_disabled-hd.png */,
+				92BF3FCC1D8CD608001B448A /* btn_ok_disabled.png */,
+				92BF3FCD1D8CD608001B448A /* btn_ok_pressed-hd.png */,
+				92BF3FCE1D8CD608001B448A /* btn_ok-hd.png */,
+				92BF3FCF1D8CD608001B448A /* btn_pause_pressed-hd.png */,
+				92BF3FD01D8CD608001B448A /* btn_pause_pressed.png */,
+				92BF3FD11D8CD608001B448A /* btn_pause-hd.png */,
+				92BF3FD21D8CD608001B448A /* btn_pause.png */,
+				92BF3FD31D8CD608001B448A /* btn_restart_pressed-hd.png */,
+				92BF3FD41D8CD608001B448A /* btn_restart_pressed.png */,
+				92BF3FD51D8CD608001B448A /* btn_restart-hd.png */,
+				92BF3FD61D8CD608001B448A /* btn_restart.png */,
+				92BF3FD71D8CD608001B448A /* highscore_dialog_bg-hd.png */,
+				92BF3FD81D8CD608001B448A /* highscore_dialog_bg.png */,
+				92BF3FD91D8CD608001B448A /* highscore_dialog_textfield-hd.png */,
+				92BF3FDA1D8CD608001B448A /* highscore_dialog_textfield.png */,
+				92BF3FDB1D8CD608001B448A /* pause_dialog_bg-hd.png */,
+				92BF3FDC1D8CD608001B448A /* pause_dialog_bg.png */,
+				92BF3FDD1D8CD608001B448A /* win_lose_dialog_bg-hd.png */,
+				92BF3FDE1D8CD608001B448A /* win_lose_dialog_bg.png */,
 			);
 			name = Dialogs;
 			sourceTree = "<group>";
@@ -1098,6 +1129,8 @@
 				92BF3FFC1D8CDD9D001B448A /* LoadingScene.m */,
 				92BF3FFE1D8CEE9A001B448A /* WinLoseDialog.h */,
 				92BF3FFF1D8CEE9A001B448A /* WinLoseDialog.m */,
+				92BF40041D8D33F1001B448A /* HighscoreDialog.h */,
+				92BF40051D8D33F1001B448A /* HighscoreDialog.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1209,34 +1242,6 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				92BF3FC31D8CD608001B448A /* btn_close_pressed-hd.png */,
-				92BF3FC41D8CD608001B448A /* btn_close_pressed.png */,
-				92BF3FC51D8CD608001B448A /* btn_close-hd.png */,
-				92BF3FC61D8CD608001B448A /* btn_close.png */,
-				92BF3FC71D8CD608001B448A /* btn_exit_pressed-hd.png */,
-				92BF3FC81D8CD608001B448A /* btn_exit_pressed.png */,
-				92BF3FC91D8CD608001B448A /* btn_exit-hd.png */,
-				92BF3FCA1D8CD608001B448A /* btn_exit.png */,
-				92BF3FCB1D8CD608001B448A /* btn_ok_disabled-hd.png */,
-				92BF3FCC1D8CD608001B448A /* btn_ok_disabled.png */,
-				92BF3FCD1D8CD608001B448A /* btn_ok_pressed-hd.png */,
-				92BF3FCE1D8CD608001B448A /* btn_ok-hd.png */,
-				92BF3FCF1D8CD608001B448A /* btn_pause_pressed-hd.png */,
-				92BF3FD01D8CD608001B448A /* btn_pause_pressed.png */,
-				92BF3FD11D8CD608001B448A /* btn_pause-hd.png */,
-				92BF3FD21D8CD608001B448A /* btn_pause.png */,
-				92BF3FD31D8CD608001B448A /* btn_restart_pressed-hd.png */,
-				92BF3FD41D8CD608001B448A /* btn_restart_pressed.png */,
-				92BF3FD51D8CD608001B448A /* btn_restart-hd.png */,
-				92BF3FD61D8CD608001B448A /* btn_restart.png */,
-				92BF3FD71D8CD608001B448A /* highscore_dialog_bg-hd.png */,
-				92BF3FD81D8CD608001B448A /* highscore_dialog_bg.png */,
-				92BF3FD91D8CD608001B448A /* highscore_dialog_textfield-hd.png */,
-				92BF3FDA1D8CD608001B448A /* highscore_dialog_textfield.png */,
-				92BF3FDB1D8CD608001B448A /* pause_dialog_bg-hd.png */,
-				92BF3FDC1D8CD608001B448A /* pause_dialog_bg.png */,
-				92BF3FDD1D8CD608001B448A /* win_lose_dialog_bg-hd.png */,
-				92BF3FDE1D8CD608001B448A /* win_lose_dialog_bg.png */,
 				92BF3FBD1D8CD299001B448A /* Dialogs */,
 				92C3EC611D3E5BC50026BE4D /* LevelSelect */,
 				92C3EC561D3E5BAB0026BE4D /* Highscores */,
@@ -1742,6 +1747,7 @@
 				92E58BE01B9D209000F0B51E /* Bird.m in Sources */,
 				92896FBD1BA621EA000E1810 /* IntroScene.m in Sources */,
 				92BF40031D8D2FB7001B448A /* HighscoreManager.m in Sources */,
+				92BF40061D8D33F1001B448A /* HighscoreDialog.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				92BF3FFD1D8CDD9D001B448A /* LoadingScene.m in Sources */,
 				92E58BC71B9CF6B800F0B51E /* Hunter.m in Sources */,

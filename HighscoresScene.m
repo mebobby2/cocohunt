@@ -11,6 +11,7 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "MenuScene.h"
+#import "HighscoreManager.h"
 
 #define kHighscoreRowHeight 32
 #define kHighscoreFontName @"Helvetica"
@@ -78,8 +79,9 @@
 }
 
 -(CCTableViewCell*)tableView:(CCTableView *)tableView nodeForRowAtIndex:(NSUInteger)index {
-    NSString *playerName = [NSString stringWithFormat:@"Player #%d", index];
-    int score = 100 - index;
+    GameStats *highscore = [[[HighscoreManager sharedHighscoreManager] getHighScores] objectAtIndex:index];
+    NSString *playerName = highscore.playerName;
+    int score = highscore.score;
     
     CCTableViewCell* cell = [[CCTableViewCell alloc] init];
     cell.contentSizeType = CCSizeTypeMake(CCSizeUnitNormalized, CCSizeUnitPoints);
@@ -107,7 +109,7 @@
 }
 
 -(NSUInteger)tableViewNumberOfRows:(CCTableView *)tableView {
-    return 5;
+    return [[HighscoreManager sharedHighscoreManager] getHighScores].count;
 }
 
 @end

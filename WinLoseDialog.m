@@ -12,6 +12,8 @@
 #import "cocos2d-ui.h"
 #import "MenuScene.h"
 #import "LoadingScene.h"
+#import "HighscoreDialog.h"
+#import "HighscoreManager.h"
 
 #define kKeyFont            @"HelveticaNeue"
 #define kKeyFontSize        12
@@ -32,7 +34,17 @@ GameStats * _currentStats;
     if (self = [super init]) {
         _currentStats = stats;
         [self setupModalDialog];
-        [self createDialogLayout];
+        
+        if ([[HighscoreManager sharedHighscoreManager] isHighscore:_currentStats.score]) {
+            HighscoreDialog *hsDialog = [[HighscoreDialog alloc] initWithGameStats:_currentStats];
+            hsDialog.onCloseBlock = ^{
+                [self createDialogLayout];
+            };
+            [self addChild:hsDialog];
+        }
+        else {
+            [self createDialogLayout];
+        }
     }
     
     return self;
