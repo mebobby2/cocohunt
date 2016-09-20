@@ -44,6 +44,10 @@
 		7A97911719E631C6001FFC4D /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A97910419E62E40001FFC4D /* libcocos2d-mac.a */; };
 		7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9790FE19E62E40001FFC4D /* libcocos2d.a */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
+		9208D60F1D91583100161602 /* physics_level-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9208D60B1D91583100161602 /* physics_level-hd.plist */; };
+		9208D6101D91583100161602 /* physics_level-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9208D60C1D91583100161602 /* physics_level-hd.png */; };
+		9208D6111D91583100161602 /* physics_level.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9208D60D1D91583100161602 /* physics_level.plist */; };
+		9208D6121D91583100161602 /* physics_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 9208D60E1D91583100161602 /* physics_level.png */; };
 		9226802C1D3A1C4800CDE989 /* HighscoresScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802B1D3A1C4800CDE989 /* HighscoresScene.m */; };
 		9226802F1D3A1C6500CDE989 /* LevelSelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802E1D3A1C6500CDE989 /* LevelSelectScene.m */; };
 		9250EC751BA0F0220022287F /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC741BA0F0220022287F /* HUDLayer.m */; };
@@ -367,6 +371,10 @@
 		7AFCD5DD19E9BDC200BCCCDA /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Source/Bridging-Header.h"; sourceTree = "<group>"; };
 		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		9208D60B1D91583100161602 /* physics_level-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "physics_level-hd.plist"; sourceTree = "<group>"; };
+		9208D60C1D91583100161602 /* physics_level-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "physics_level-hd.png"; sourceTree = "<group>"; };
+		9208D60D1D91583100161602 /* physics_level.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physics_level.plist; sourceTree = "<group>"; };
+		9208D60E1D91583100161602 /* physics_level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = physics_level.png; sourceTree = "<group>"; };
 		9226802A1D3A1C4800CDE989 /* HighscoresScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresScene.h; sourceTree = "<group>"; };
 		9226802B1D3A1C4800CDE989 /* HighscoresScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresScene.m; sourceTree = "<group>"; };
 		9226802D1D3A1C6500CDE989 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
@@ -830,6 +838,17 @@
 			name = Mac;
 			sourceTree = "<group>";
 		};
+		9208D6081D91571600161602 /* PhysicsLevel */ = {
+			isa = PBXGroup;
+			children = (
+				9208D60B1D91583100161602 /* physics_level-hd.plist */,
+				9208D60C1D91583100161602 /* physics_level-hd.png */,
+				9208D60D1D91583100161602 /* physics_level.plist */,
+				9208D60E1D91583100161602 /* physics_level.png */,
+			);
+			name = PhysicsLevel;
+			sourceTree = "<group>";
+		};
 		9222E2B918734FF800A246C7 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1248,6 +1267,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9208D6081D91571600161602 /* PhysicsLevel */,
 				92BF3FBD1D8CD299001B448A /* Dialogs */,
 				92C3EC611D3E5BC50026BE4D /* LevelSelect */,
 				92C3EC561D3E5BAB0026BE4D /* Highscores */,
@@ -1509,10 +1529,12 @@
 				92896FA31BA6213C000E1810 /* Exploding_Coconut_26-hd.png in Resources */,
 				92BF3FF91D8CD608001B448A /* win_lose_dialog_bg-hd.png in Resources */,
 				92896F7B1BA6213C000E1810 /* Exploding_Coconut_6-hd.png in Resources */,
+				9208D6111D91583100161602 /* physics_level.plist in Resources */,
 				92896F891BA6213C000E1810 /* Exploding_Coconut_13-hd.png in Resources */,
 				92BF3FE31D8CD608001B448A /* btn_exit_pressed-hd.png in Resources */,
 				92BF3FEA1D8CD608001B448A /* btn_ok-hd.png in Resources */,
 				92896FC21BA62C37000E1810 /* feather.png in Resources */,
+				9208D60F1D91583100161602 /* physics_level-hd.plist in Resources */,
 				92AE53E61BA13DC400A885CA /* win-hd.png in Resources */,
 				92C3EC5E1D3E5BBB0026BE4D /* highscores_bg.png in Resources */,
 				92896FB31BA6213C000E1810 /* Exploding_Coconut_34-hd.png in Resources */,
@@ -1614,6 +1636,7 @@
 				92BF3FF81D8CD608001B448A /* pause_dialog_bg.png in Resources */,
 				92896FA01BA6213C000E1810 /* Exploding_Coconut_24.png in Resources */,
 				92BF3FE71D8CD608001B448A /* btn_ok_disabled-hd.png in Resources */,
+				9208D6101D91583100161602 /* physics_level-hd.png in Resources */,
 				92896F981BA6213C000E1810 /* Exploding_Coconut_20.png in Resources */,
 				92896FB01BA6213C000E1810 /* Exploding_Coconut_32.png in Resources */,
 				92AE53DE1BA13DC400A885CA /* lost-hd.png in Resources */,
@@ -1660,6 +1683,7 @@
 				92C3EC6A1D3E5BD60026BE4D /* hunting_level-hd.png in Resources */,
 				92AE53E81BA13DC400A885CA /* win.png in Resources */,
 				92BF3FF71D8CD608001B448A /* pause_dialog_bg-hd.png in Resources */,
+				9208D6121D91583100161602 /* physics_level.png in Resources */,
 				92BF3FF51D8CD608001B448A /* highscore_dialog_textfield-hd.png in Resources */,
 				92601DE81BB0F85700E9E30D /* btn_about.png in Resources */,
 				92E58BC11B9CEFF900F0B51E /* game_scene_bg-hd.png in Resources */,
