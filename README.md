@@ -1,5 +1,7 @@
 # cocohunt
 
-Upto page 525
+Upto page 532
+
+Before that: figure out why crashing
 
 
