@@ -12,9 +12,10 @@
 #import "cocos2d-ui.h"
 #import "MenuScene.h"
 #import "GameScene.h"
+#import "PhysicsScene.h"
 
 #define kLevelHunting @"hunting"
-#define kLevelDodging @"dodging";
+#define kLevelDodging @"dodging"
 
 @implementation LevelSelectScene
 -(instancetype)init
@@ -101,6 +102,11 @@
     if ([levelName isEqualToString:kLevelHunting])
     {
         GameScene *scene = [[GameScene alloc] init];
+        [[CCDirector sharedDirector] replaceScene:scene];
+    }
+    else if ([levelName isEqualToString:kLevelDodging])
+    {
+        PhysicsScene *scene = [[PhysicsScene alloc] init];
         [[CCDirector sharedDirector] replaceScene:scene];
     }
     else
