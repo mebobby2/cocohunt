@@ -48,6 +48,7 @@
 		9208D6101D91583100161602 /* physics_level-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9208D60C1D91583100161602 /* physics_level-hd.png */; };
 		9208D6111D91583100161602 /* physics_level.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9208D60D1D91583100161602 /* physics_level.plist */; };
 		9208D6121D91583100161602 /* physics_level.png in Resources */ = {isa = PBXBuildFile; fileRef = 9208D60E1D91583100161602 /* physics_level.png */; };
+		9208D6151D9158B500161602 /* PhysicsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208D6141D9158B500161602 /* PhysicsScene.m */; };
 		9226802C1D3A1C4800CDE989 /* HighscoresScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802B1D3A1C4800CDE989 /* HighscoresScene.m */; };
 		9226802F1D3A1C6500CDE989 /* LevelSelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802E1D3A1C6500CDE989 /* LevelSelectScene.m */; };
 		9250EC751BA0F0220022287F /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC741BA0F0220022287F /* HUDLayer.m */; };
@@ -375,6 +376,8 @@
 		9208D60C1D91583100161602 /* physics_level-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "physics_level-hd.png"; sourceTree = "<group>"; };
 		9208D60D1D91583100161602 /* physics_level.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physics_level.plist; sourceTree = "<group>"; };
 		9208D60E1D91583100161602 /* physics_level.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = physics_level.png; sourceTree = "<group>"; };
+		9208D6131D9158B500161602 /* PhysicsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsScene.h; sourceTree = "<group>"; };
+		9208D6141D9158B500161602 /* PhysicsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsScene.m; sourceTree = "<group>"; };
 		9226802A1D3A1C4800CDE989 /* HighscoresScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoresScene.h; sourceTree = "<group>"; };
 		9226802B1D3A1C4800CDE989 /* HighscoresScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresScene.m; sourceTree = "<group>"; };
 		9226802D1D3A1C6500CDE989 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
@@ -1156,6 +1159,8 @@
 				92BF3FFF1D8CEE9A001B448A /* WinLoseDialog.m */,
 				92BF40041D8D33F1001B448A /* HighscoreDialog.h */,
 				92BF40051D8D33F1001B448A /* HighscoreDialog.m */,
+				9208D6131D9158B500161602 /* PhysicsScene.h */,
+				9208D6141D9158B500161602 /* PhysicsScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1774,6 +1779,7 @@
 				929945161BAF54F30055E975 /* AudioManager.m in Sources */,
 				9226802F1D3A1C6500CDE989 /* LevelSelectScene.m in Sources */,
 				9226802C1D3A1C4800CDE989 /* HighscoresScene.m in Sources */,
+				9208D6151D9158B500161602 /* PhysicsScene.m in Sources */,
 				92601DD31BB0E61400E9E30D /* MenuScene.m in Sources */,
 				92BF3FC21D8CD396001B448A /* PauseDialog.m in Sources */,
 				92E58BE01B9D209000F0B51E /* Bird.m in Sources */,
