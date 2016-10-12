@@ -14,13 +14,12 @@
 @implementation PhysicsScene
 
 CCPhysicsNode *_physicsNode;
-CCNode *_nodeMain;
 
 -(void)onEnter {
     [super onEnter];
     
     [self createPhysicsNode];
-    [self createBatchNodes];
+    [self cacheSprite];
     [self addBackground];
 }
 
@@ -37,11 +36,8 @@ CCNode *_nodeMain;
     [self addChild:_physicsNode];
 }
 
--(void)createBatchNodes {
+-(void)cacheSprite {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"physics_level.plist"];
-    _nodeMain = [CCSprite spriteWithImageNamed:@"physics_level.png"];
-    
-    [_physicsNode addChild:_nodeMain];
 }
 
 -(void)addBackground {
