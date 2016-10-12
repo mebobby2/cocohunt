@@ -49,6 +49,8 @@ CCSpriteBatchNode *_batchNodeMain;
     
     CCSprite *bg = [CCSprite spriteWithImageNamed:@"physics_level_bg.png"];
     bg.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.5f);
+    bg.scaleX = viewSize.width / [bg boundingBox].size.width;
+    bg.scaleY = viewSize.height / [bg boundingBox].size.height;
     [_batchNodeMain addChild:bg z:kBackgroundZ];
 }
 
