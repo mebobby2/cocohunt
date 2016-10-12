@@ -14,7 +14,7 @@
 @implementation PhysicsScene
 
 CCPhysicsNode *_physicsNode;
-CCSpriteBatchNode *_batchNodeMain;
+CCNode *_nodeMain;
 
 -(void)onEnter {
     [super onEnter];
@@ -39,9 +39,9 @@ CCSpriteBatchNode *_batchNodeMain;
 
 -(void)createBatchNodes {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"physics_level.plist"];
-    _batchNodeMain = [CCSpriteBatchNode batchNodeWithFile:@"physics_level.png"];
+    _nodeMain = [CCSprite spriteWithImageNamed:@"physics_level.png"];
     
-    [_physicsNode addChild:_batchNodeMain];
+    [_physicsNode addChild:_nodeMain];
 }
 
 -(void)addBackground {
@@ -51,7 +51,7 @@ CCSpriteBatchNode *_batchNodeMain;
     bg.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.5f);
     bg.scaleX = viewSize.width / [bg boundingBox].size.width;
     bg.scaleY = viewSize.height / [bg boundingBox].size.height;
-    [_batchNodeMain addChild:bg z:kBackgroundZ];
+    [self addChild:bg z:kBackgroundZ];
 }
 
 -(void)spawnStone {
@@ -62,7 +62,7 @@ CCSpriteBatchNode *_batchNodeMain;
     stoneBody.mass = 10.0f;
     stoneBody.type = CCPhysicsBodyTypeDynamic;
     stone.physicsBody = stoneBody;
-    [_batchNodeMain addChild:stone z:kObjectsZ];
+    [self addChild:stone z:kObjectsZ];
     
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     stone.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.9f);
