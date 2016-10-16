@@ -53,6 +53,7 @@
 		9226802F1D3A1C6500CDE989 /* LevelSelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802E1D3A1C6500CDE989 /* LevelSelectScene.m */; };
 		9250EC751BA0F0220022287F /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC741BA0F0220022287F /* HUDLayer.m */; };
 		9250EC7B1BA0F8890022287F /* GameStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC7A1BA0F8890022287F /* GameStats.m */; };
+		9259C3961DB3856D00A2E922 /* PhysicsHunter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9259C3951DB3856D00A2E922 /* PhysicsHunter.m */; };
 		92601DD31BB0E61400E9E30D /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92601DD21BB0E61400E9E30D /* MenuScene.m */; };
 		92601DE51BB0F85700E9E30D /* btn_about_pressed-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92601DD71BB0F85700E9E30D /* btn_about_pressed-hd.png */; };
 		92601DE61BB0F85700E9E30D /* btn_about_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 92601DD81BB0F85700E9E30D /* btn_about_pressed.png */; };
@@ -386,6 +387,8 @@
 		9250EC741BA0F0220022287F /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		9250EC791BA0F8890022287F /* GameStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStats.h; sourceTree = "<group>"; };
 		9250EC7A1BA0F8890022287F /* GameStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStats.m; sourceTree = "<group>"; };
+		9259C3941DB3856D00A2E922 /* PhysicsHunter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsHunter.h; sourceTree = "<group>"; };
+		9259C3951DB3856D00A2E922 /* PhysicsHunter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsHunter.m; sourceTree = "<group>"; };
 		92601DD11BB0E61400E9E30D /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		92601DD21BB0E61400E9E30D /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 		92601DD71BB0F85700E9E30D /* btn_about_pressed-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_about_pressed-hd.png"; sourceTree = "<group>"; };
@@ -1182,6 +1185,8 @@
 				92E58BC61B9CF6B800F0B51E /* Hunter.m */,
 				92E58BDE1B9D209000F0B51E /* Bird.h */,
 				92E58BDF1B9D209000F0B51E /* Bird.m */,
+				9259C3941DB3856D00A2E922 /* PhysicsHunter.h */,
+				9259C3951DB3856D00A2E922 /* PhysicsHunter.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1795,6 +1800,7 @@
 				9250EC751BA0F0220022287F /* HUDLayer.m in Sources */,
 				92A87CF11BB875A4009A4625 /* AboutScene.m in Sources */,
 				9250EC7B1BA0F8890022287F /* GameStats.m in Sources */,
+				9259C3961DB3856D00A2E922 /* PhysicsHunter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
