@@ -7,6 +7,7 @@
 //
 
 #import "PhysicsScene.h"
+#import "PhysicsHunter.h"
 
 #define kBackgroundZ 10
 #define kPhysicsWorldZ 11
@@ -17,6 +18,7 @@
 
 CCPhysicsNode *_physicsNode;
 CCSprite *_ground;
+PhysicsHunter *_hunter;
 
 -(void)onEnter {
     [super onEnter];
@@ -31,6 +33,7 @@ CCSprite *_ground;
     [super onEnterTransitionDidFinish];
     
     [self spawnStone];
+    [self createHunter];
 }
 
 -(void)createPhysicsNode {
@@ -88,6 +91,32 @@ CCSprite *_ground;
     _ground.position = ccp(viewSize.width * 0.5f, 0);
     
     [_physicsNode addChild:_ground z:kGroundZ];
+}
+
+-(void)createHunter {
+    _hunter = [[PhysicsHunter alloc] init];
+    
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    _hunter.anchorPoint = ccp(0.5f, 0);
+    _hunter.position = ccp(viewSize.width * 0.5f, _ground.contentSizeInPoints.height + 10);
+    
+    [_physicsNode addChild:_hunter z:kObjectsZ];
+    
+    self.userInteractionEnabled = YES;
+}
+
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    CGPoint touchLocation = [touch locationInNode:self];
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    
+    if (touchLocation.x >= viewSize.width * 0.5f)
+        [_hunter runAtDirection:PhysicsHunterRunDirectionRight];
+    else
+        [_hunter runAtDirection:PhysicsHunterRunDirectionLeft];
+}
+
+-(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    [_hunter stop];
 }
 
 @end
