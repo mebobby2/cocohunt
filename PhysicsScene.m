@@ -69,7 +69,10 @@ CCSprite *_ground;
 }
 
 -(void)addGround {
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    
     _ground = [CCSprite spriteWithImageNamed:@"ground.png"];
+    _ground.scaleX = viewSize.width / [_ground boundingBox].size.width;
     
     CGRect groundRect;
     groundRect.origin = CGPointZero;
@@ -81,7 +84,6 @@ CCSprite *_ground;
     
     _ground.physicsBody = groundBody;
     
-    CGSize viewSize = [CCDirector sharedDirector].viewSize;
     _ground.anchorPoint = ccp(0.5f, 0);
     _ground.position = ccp(viewSize.width * 0.5f, 0);
     
