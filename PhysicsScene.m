@@ -33,7 +33,7 @@ CCPhysicsNode *_physicsNode;
     _physicsNode = [CCPhysicsNode node];
     _physicsNode.gravity = ccp(0, -250);
     _physicsNode.debugDraw = YES;
-    [self addChild:_physicsNode];
+    [self addChild:_physicsNode z:kObjectsZ];
 }
 
 -(void)cacheSprite {
@@ -58,7 +58,7 @@ CCPhysicsNode *_physicsNode;
     stoneBody.mass = 10.0f;
     stoneBody.type = CCPhysicsBodyTypeDynamic;
     stone.physicsBody = stoneBody;
-    [self addChild:stone z:kObjectsZ];
+    [_physicsNode addChild:stone];
     
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     stone.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.9f);
