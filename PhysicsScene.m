@@ -32,7 +32,7 @@ CCPhysicsNode *_physicsNode;
 -(void)createPhysicsNode {
     _physicsNode = [CCPhysicsNode node];
     _physicsNode.gravity = ccp(0, -250);
-    _physicsNode.debugDraw = YES;
+    //_physicsNode.debugDraw = YES; //debugDraw does not work for this version of cocos2d and xcode, some shader files are missing
     [self addChild:_physicsNode z:kObjectsZ];
 }
 
