@@ -34,6 +34,7 @@ PhysicsHunter *_hunter;
     
     [self spawnStone];
     [self createHunter];
+    [self addBoundaries];
 }
 
 -(void)createPhysicsNode {
@@ -103,6 +104,32 @@ PhysicsHunter *_hunter;
     [_physicsNode addChild:_hunter z:kObjectsZ];
     
     self.userInteractionEnabled = YES;
+}
+
+-(void)addBoundaries {
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    CGRect boundRect = CGRectMake(0, 0, 20, viewSize.height * 0.25f);
+    
+    CCNode *leftBound = [CCNode node];
+    leftBound.position = ccp(0, _ground.contentSize.height + 30);
+    leftBound.contentSize = boundRect.size;
+    
+    CCPhysicsBody *leftBody = [CCPhysicsBody bodyWithRect:boundRect cornerRadius:0];
+    leftBody.type = CCPhysicsBodyTypeStatic;
+    leftBound.physicsBody = leftBody;
+    
+    [_physicsNode addChild:leftBound];
+    
+    CCNode *rightBound = [CCNode node];
+    rightBound.contentSize = boundRect.size;
+    rightBound.anchorPoint = ccp(1.0f, 0);
+    rightBound.position = ccp(viewSize.width, leftBound.position.y);
+    
+    CCPhysicsBody *rightBody = [CCPhysicsBody bodyWithRect:boundRect cornerRadius:0];
+    rightBody.type = CCPhysicsBodyTypeStatic;
+    rightBound.physicsBody = rightBody;
+    
+    [_physicsNode addChild:rightBound];
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
