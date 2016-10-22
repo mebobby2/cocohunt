@@ -56,6 +56,7 @@ PhysicsHunterRunDirection _runningDirection;
     CGPoint to = ccp(self.contentSizeInPoints.width * 0.5f, self.contentSizeInPoints.height * 0.85f);
     CCPhysicsBody *body = [CCPhysicsBody bodyWithPillFrom:from to:to cornerRadius:8.0f];
     body.allowsRotation = NO;
+    body.friction = 3.0f;
     self.physicsBody = body;
 }
 
