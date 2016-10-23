@@ -120,7 +120,7 @@ PhysicsHunterRunDirection _runningDirection;
         explode.texture = [CCTexture textureWithFile:@"feather.png"];
         explode.positionType = self.positionType;
         explode.position = self.position;
-        [[CCDirector sharedDirector].runningScene addChild:explode];
+        [[CCDirector sharedDirector].runningScene addChild:explode z:22];
         
         [self removeFromParentAndCleanup:YES];
     }
