@@ -40,6 +40,7 @@ PhysicsHunter *_hunter;
 -(void)createPhysicsNode {
     _physicsNode = [CCPhysicsNode node];
     _physicsNode.gravity = ccp(0, -250);
+    _physicsNode.collisionDelegate = self;
     //_physicsNode.debugDraw = YES; //debugDraw does not work for this version of cocos2d and xcode, some shader files are missing
     [self addChild:_physicsNode z:kPhysicsWorldZ];
 }
@@ -63,6 +64,7 @@ PhysicsHunter *_hunter;
     float radius = stone.contentSizeInPoints.width * 0.5f;
     
     CCPhysicsBody *stoneBody = [CCPhysicsBody bodyWithCircleOfRadius:radius andCenter:stone.anchorPointInPoints];
+    stoneBody.collisionType = @"stone";
     stoneBody.mass = 10.0f;
     stoneBody.type = CCPhysicsBodyTypeDynamic;
     stone.physicsBody = stoneBody;
@@ -83,6 +85,7 @@ PhysicsHunter *_hunter;
     groundRect.size = _ground.contentSize;
     
     CCPhysicsBody *groundBody = [CCPhysicsBody bodyWithRect:groundRect cornerRadius:0];
+    groundBody.collisionType = @"ground";
     groundBody.type = CCPhysicsBodyTypeStatic;
     groundBody.elasticity = 1.5f;
     
@@ -130,6 +133,15 @@ PhysicsHunter *_hunter;
     rightBound.physicsBody = rightBody;
     
     [_physicsNode addChild:rightBound];
+}
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair stone:(CCNode *)stone ground:(CCNode *)ground {
+    return NO;
+}
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hunter:(CCNode *)hunter stone:(CCNode *)stone {
+    [_hunter die];
+    return YES;
 }
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {

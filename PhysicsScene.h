@@ -9,6 +9,6 @@
 #import "CCScene.h"
 #import "cocos2d.h"
 
-@interface PhysicsScene : CCScene
+@interface PhysicsScene : CCScene<CCPhysicsCollisionDelegate>
 
 @end

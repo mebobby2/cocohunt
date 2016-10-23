@@ -27,5 +27,6 @@ typedef NS_ENUM(NSUInteger, PhysicsHunterRunDirection)
 
 -(void)runAtDirection:(PhysicsHunterRunDirection)direction;
 -(void)stop;
+-(void)die;
 
 @end

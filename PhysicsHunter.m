@@ -57,6 +57,7 @@ PhysicsHunterRunDirection _runningDirection;
     CCPhysicsBody *body = [CCPhysicsBody bodyWithPillFrom:from to:to cornerRadius:8.0f];
     body.allowsRotation = NO;
     body.friction = 3.0f;
+    body.collisionType = @"hunter";
     self.physicsBody = body;
 }
 
@@ -110,6 +111,21 @@ PhysicsHunterRunDirection _runningDirection;
         
         self.physicsBody.velocity = newVelocity;
     }
+}
+
+-(void)die {
+    if (_state != PhysicsHunterStateDead) {
+        CCParticleExplosion *explode = [CCParticleExplosion node];
+        
+        explode.texture = [CCTexture textureWithFile:@"feather.png"];
+        explode.positionType = self.positionType;
+        explode.position = self.position;
+        [[CCDirector sharedDirector].runningScene addChild:explode];
+        
+        [self removeFromParentAndCleanup:YES];
+    }
+    
+    _state = PhysicsHunterStateDead;
 }
 
 @end
