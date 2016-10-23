@@ -65,6 +65,7 @@ PhysicsHunter *_hunter;
     
     CCPhysicsBody *stoneBody = [CCPhysicsBody bodyWithCircleOfRadius:radius andCenter:stone.anchorPointInPoints];
     stoneBody.collisionType = @"stone";
+    stoneBody.collisionMask = @[@"hunters"];
     stoneBody.mass = 10.0f;
     stoneBody.type = CCPhysicsBodyTypeDynamic;
     stone.physicsBody = stoneBody;
@@ -86,6 +87,7 @@ PhysicsHunter *_hunter;
     
     CCPhysicsBody *groundBody = [CCPhysicsBody bodyWithRect:groundRect cornerRadius:0];
     groundBody.collisionType = @"ground";
+    groundBody.collisionCategories = @[@"obstacles"];
     groundBody.type = CCPhysicsBodyTypeStatic;
     groundBody.elasticity = 1.5f;
     
@@ -135,9 +137,9 @@ PhysicsHunter *_hunter;
     [_physicsNode addChild:rightBound];
 }
 
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair stone:(CCNode *)stone ground:(CCNode *)ground {
-    return NO;
-}
+//-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair stone:(CCNode *)stone ground:(CCNode *)ground {
+//    return NO;
+//}
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hunter:(CCNode *)hunter stone:(CCNode *)stone {
     [_hunter die];

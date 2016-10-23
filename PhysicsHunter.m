@@ -58,6 +58,7 @@ PhysicsHunterRunDirection _runningDirection;
     body.allowsRotation = NO;
     body.friction = 3.0f;
     body.collisionType = @"hunter";
+    body.collisionCategories = @[@"hunters"];
     self.physicsBody = body;
 }
 
