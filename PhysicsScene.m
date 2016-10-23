@@ -20,11 +20,15 @@ CCPhysicsNode *_physicsNode;
 CCSprite *_ground;
 PhysicsHunter *_hunter;
 NSObject * _stoneGroundCollisionGroup;
+float _timeUntilNextStone;
+NSMutableArray *_stones;
 
 -(void)onEnter {
     [super onEnter];
     
     _stoneGroundCollisionGroup = [[NSObject alloc] init];
+    _stones = [NSMutableArray array];
+    _timeUntilNextStone = 2.0f;
     
     [self createPhysicsNode];
     [self cacheSprite];
@@ -38,6 +42,23 @@ NSObject * _stoneGroundCollisionGroup;
     [self spawnStone];
     [self createHunter];
     [self addBoundaries];
+}
+
+-(void)fixedUpdate:(CCTime)dt {
+    for (CCSprite *stone in [_stones copy]) {
+        if (stone.position.y < -10) {
+            [_stones removeObject:stone];
+            [stone removeFromParentAndCleanup:YES];
+        }
+    }
+    
+    if (_hunter.state != PhysicsHunterStateDead) {
+        _timeUntilNextStone -= dt;
+        if (_timeUntilNextStone < 0) {
+            _timeUntilNextStone = 0.5f + arc4random_uniform(1.0f);
+            [self spawnStone];
+        }
+    }
 }
 
 -(void)createPhysicsNode {
@@ -75,8 +96,20 @@ NSObject * _stoneGroundCollisionGroup;
     stone.physicsBody = stoneBody;
     [_physicsNode addChild:stone z:kObjectsZ];
     
+    [_stones addObject:stone];
+    [self launchStone: stone];
+}
+
+-(void)launchStone:(CCSprite*)stone {
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     stone.position = ccp(viewSize.width * 0.5f, viewSize.height * 0.9f);
+    
+    float xImpulseMin = -1200.0f;
+    float xImpulseMax = 1200.0f;
+    float yImpulse = 2000.0f;
+    float xImpluse = xImpulseMin + 2.0f * arc4random_uniform(xImpulseMax);
+    
+    [stone.physicsBody applyImpulse: ccp(xImpluse, yImpulse)];
 }
 
 -(void)addGround {
