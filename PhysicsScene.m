@@ -155,7 +155,12 @@ PhysicsHunter *_hunter;
 }
 
 -(void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    [_hunter stop];
+    if (_hunter.state == PhysicsHunterStateDead) {
+        PhysicsScene *scene = [[PhysicsScene alloc] init];
+        [[CCDirector sharedDirector] replaceScene:scene];
+    } else {
+        [_hunter stop];
+    }
 }
 
 @end
