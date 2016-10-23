@@ -19,9 +19,12 @@
 CCPhysicsNode *_physicsNode;
 CCSprite *_ground;
 PhysicsHunter *_hunter;
+NSObject * _stoneGroundCollisionGroup;
 
 -(void)onEnter {
     [super onEnter];
+    
+    _stoneGroundCollisionGroup = [[NSObject alloc] init];
     
     [self createPhysicsNode];
     [self cacheSprite];
@@ -65,7 +68,8 @@ PhysicsHunter *_hunter;
     
     CCPhysicsBody *stoneBody = [CCPhysicsBody bodyWithCircleOfRadius:radius andCenter:stone.anchorPointInPoints];
     stoneBody.collisionType = @"stone";
-    stoneBody.collisionMask = @[@"hunters"];
+    //stoneBody.collisionMask = @[@"hunters"];
+    stoneBody.collisionGroup = _stoneGroundCollisionGroup;
     stoneBody.mass = 10.0f;
     stoneBody.type = CCPhysicsBodyTypeDynamic;
     stone.physicsBody = stoneBody;
@@ -87,7 +91,8 @@ PhysicsHunter *_hunter;
     
     CCPhysicsBody *groundBody = [CCPhysicsBody bodyWithRect:groundRect cornerRadius:0];
     groundBody.collisionType = @"ground";
-    groundBody.collisionCategories = @[@"obstacles"];
+    //groundBody.collisionCategories = @[@"obstacles"];
+    groundBody.collisionGroup = _stoneGroundCollisionGroup;
     groundBody.type = CCPhysicsBodyTypeStatic;
     groundBody.elasticity = 1.5f;
     
