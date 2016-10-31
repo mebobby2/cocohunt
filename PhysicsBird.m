@@ -43,7 +43,7 @@ CCPhysicsJoint *_stoneJoint;
     _targetPoint = point;
     self.stoneToDrop = stone;
     
-    self.stoneToDrop.physicsBody.collisionMask = @[];
+    //self.stoneToDrop.physicsBody.collisionMask = @[];
     self.physicsBody.collisionMask = @[];
     
     float distanceToHoldTheStone = self.contentSize.height * 0.5f;
@@ -79,7 +79,7 @@ CCPhysicsJoint *_stoneJoint;
 }
 
 -(void)dropStone {
-    self.stoneToDrop.physicsBody.collisionMask = nil;
+   // self.stoneToDrop.physicsBody.collisionMask = nil;
     [_stoneJoint invalidate];
 }
 
