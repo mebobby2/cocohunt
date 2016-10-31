@@ -8,6 +8,7 @@
 
 #import "PhysicsScene.h"
 #import "PhysicsHunter.h"
+#import "PhysicsBird.h"
 
 #define kBackgroundZ 10
 #define kPhysicsWorldZ 11
@@ -39,8 +40,8 @@ NSMutableArray *_stones;
 -(void)onEnterTransitionDidFinish {
     [super onEnterTransitionDidFinish];
     
-    [self spawnStone];
     [self createHunter];
+    [self spawnStone];
     [self addBoundaries];
 }
 
@@ -55,7 +56,7 @@ NSMutableArray *_stones;
     if (_hunter.state != PhysicsHunterStateDead) {
         _timeUntilNextStone -= dt;
         if (_timeUntilNextStone < 0) {
-            _timeUntilNextStone = 0.5f + arc4random_uniform(1.0f);
+            _timeUntilNextStone = 1.0f + arc4random_uniform(1.0f);
             [self spawnStone];
         }
     }
@@ -71,6 +72,7 @@ NSMutableArray *_stones;
 
 -(void)cacheSprite {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"physics_level.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Cocohunt.plist"];
 }
 
 -(void)addBackground {
@@ -97,7 +99,7 @@ NSMutableArray *_stones;
     [_physicsNode addChild:stone z:kObjectsZ];
     
     [_stones addObject:stone];
-    [self launchStone: stone];
+    [self launchBirdWithStone: stone];
 }
 
 -(void)launchStone:(CCSprite*)stone {
@@ -110,6 +112,18 @@ NSMutableArray *_stones;
     float xImpluse = xImpulseMin + 2.0f * arc4random_uniform(xImpulseMax);
     
     [stone.physicsBody applyImpulse: ccp(xImpluse, yImpulse)];
+}
+
+-(void)launchBirdWithStone:(CCSprite*)stone {
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    PhysicsBird *bird = [[PhysicsBird alloc] initWithBirdType:BirdTypeBig];
+    bird.position = ccp(viewSize.width * 1.1f, viewSize.height * 0.9f);
+    
+    [_physicsNode addChild:bird];
+    
+    CGPoint targetPosition = _hunter.position;
+    
+    [bird flyAndDropStoneAt:targetPosition stone:stone];
 }
 
 -(void)addGround {
