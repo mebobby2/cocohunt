@@ -51,6 +51,7 @@
 		9208D6151D9158B500161602 /* PhysicsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9208D6141D9158B500161602 /* PhysicsScene.m */; };
 		9226802C1D3A1C4800CDE989 /* HighscoresScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802B1D3A1C4800CDE989 /* HighscoresScene.m */; };
 		9226802F1D3A1C6500CDE989 /* LevelSelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9226802E1D3A1C6500CDE989 /* LevelSelectScene.m */; };
+		9235B5931DC792ED002DE468 /* PhysicsBird.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235B5921DC792ED002DE468 /* PhysicsBird.m */; };
 		9250EC751BA0F0220022287F /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC741BA0F0220022287F /* HUDLayer.m */; };
 		9250EC7B1BA0F8890022287F /* GameStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 9250EC7A1BA0F8890022287F /* GameStats.m */; };
 		9259C3961DB3856D00A2E922 /* PhysicsHunter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9259C3951DB3856D00A2E922 /* PhysicsHunter.m */; };
@@ -383,6 +384,8 @@
 		9226802B1D3A1C4800CDE989 /* HighscoresScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoresScene.m; sourceTree = "<group>"; };
 		9226802D1D3A1C6500CDE989 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
 		9226802E1D3A1C6500CDE989 /* LevelSelectScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectScene.m; sourceTree = "<group>"; };
+		9235B5911DC792ED002DE468 /* PhysicsBird.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsBird.h; sourceTree = "<group>"; };
+		9235B5921DC792ED002DE468 /* PhysicsBird.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsBird.m; sourceTree = "<group>"; };
 		9250EC731BA0F0220022287F /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
 		9250EC741BA0F0220022287F /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
 		9250EC791BA0F8890022287F /* GameStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStats.h; sourceTree = "<group>"; };
@@ -1187,6 +1190,8 @@
 				92E58BDF1B9D209000F0B51E /* Bird.m */,
 				9259C3941DB3856D00A2E922 /* PhysicsHunter.h */,
 				9259C3951DB3856D00A2E922 /* PhysicsHunter.m */,
+				9235B5911DC792ED002DE468 /* PhysicsBird.h */,
+				9235B5921DC792ED002DE468 /* PhysicsBird.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1795,6 +1800,7 @@
 				92BF3FFD1D8CDD9D001B448A /* LoadingScene.m in Sources */,
 				92E58BC71B9CF6B800F0B51E /* Hunter.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* GameScene.m in Sources */,
+				9235B5931DC792ED002DE468 /* PhysicsBird.m in Sources */,
 				92BF40001D8CEE9A001B448A /* WinLoseDialog.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				9250EC751BA0F0220022287F /* HUDLayer.m in Sources */,
