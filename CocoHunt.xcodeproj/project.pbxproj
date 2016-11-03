@@ -271,6 +271,7 @@
 		92E775A41DCAE353000C937E /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 92E775A11DCAE353000C937E /* tilemap.tmx */; };
 		92E775A71DCAE38A000C937E /* tile_level_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E775A51DCAE38A000C937E /* tile_level_bg-hd.png */; };
 		92E775A81DCAE38A000C937E /* tile_level_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E775A61DCAE38A000C937E /* tile_level_bg.png */; };
+		92E775AB1DCAE3D5000C937E /* TilemapScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E775AA1DCAE3D5000C937E /* TilemapScene.m */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -607,6 +608,8 @@
 		92E775A11DCAE353000C937E /* tilemap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tilemap.tmx; sourceTree = "<group>"; };
 		92E775A51DCAE38A000C937E /* tile_level_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_level_bg-hd.png"; sourceTree = "<group>"; };
 		92E775A61DCAE38A000C937E /* tile_level_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_level_bg.png; sourceTree = "<group>"; };
+		92E775A91DCAE3D5000C937E /* TilemapScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilemapScene.h; sourceTree = "<group>"; };
+		92E775AA1DCAE3D5000C937E /* TilemapScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TilemapScene.m; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -1179,6 +1182,8 @@
 				92BF40051D8D33F1001B448A /* HighscoreDialog.m */,
 				9208D6131D9158B500161602 /* PhysicsScene.h */,
 				9208D6141D9158B500161602 /* PhysicsScene.m */,
+				92E775A91DCAE3D5000C937E /* TilemapScene.h */,
+				92E775AA1DCAE3D5000C937E /* TilemapScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1827,6 +1832,7 @@
 				92E58BE01B9D209000F0B51E /* Bird.m in Sources */,
 				92896FBD1BA621EA000E1810 /* IntroScene.m in Sources */,
 				92BF40031D8D2FB7001B448A /* HighscoreManager.m in Sources */,
+				92E775AB1DCAE3D5000C937E /* TilemapScene.m in Sources */,
 				92BF40061D8D33F1001B448A /* HighscoreDialog.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				92BF3FFD1D8CDD9D001B448A /* LoadingScene.m in Sources */,
