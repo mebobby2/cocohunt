@@ -1,8 +1,7 @@
 # cocohunt
 
-Upto page 621
+Upto page 625
 
-Writing code to add the bird to the new TilemapScene
 
 
 
