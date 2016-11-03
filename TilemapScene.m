@@ -33,6 +33,19 @@ Bird *_bird;
     [self addBird];
 }
 
+-(void)update:(CCTime)dt {
+    float distance = 75.0f * dt;
+    
+    CGPoint newTilemapPos = _tileMap.position;
+    newTilemapPos.x = newTilemapPos.x - distance;
+    
+    CGSize viewSize = [CCDirector sharedDirector].viewSize;
+    float endX = -1 * _worldSize + viewSize.width;
+    
+    if (newTilemapPos.x > endX)
+        _tileMap.position = newTilemapPos;
+}
+
 -(void)cacheSprites {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Cocohunt.plist"];
 }
