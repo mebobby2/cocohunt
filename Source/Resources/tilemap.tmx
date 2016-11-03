@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="10" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Jungle" tilewidth="32" tileheight="32" spacing="2" margin="2" tilecount="21" columns="3">
+  <image source="Development/cocohunt/Source/Resources/tilemap.png" width="128" height="256"/>
+ </tileset>
+ <layer name="Bushes" width="64" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGAT7ACcRcA+0IKgNk/+DzH0iOG4qJ1TMKBj8AAOQ8AG0=
+  </data>
+ </layer>
+ <layer name="Trees" width="64" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRAAPsRIpx0NohdADY/MCGRZ4Ni1o2hqEPWAmIsSGJofsXm96hBlgIiLEiiaH7F5veUTC0AACj3wB7
+  </data>
+ </layer>
+ <layer name="Ground" width="64" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYWYARiJmhmAmJTUgcXWyoAgAvVAAs
+  </data>
+ </layer>
+</map>

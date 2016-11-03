@@ -265,6 +265,12 @@
 		92E58BE61B9D43B300F0B51E /* Cocohunt.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BE21B9D43B300F0B51E /* Cocohunt.png */; };
 		92E58BE71B9D43B300F0B51E /* Cocohunt-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BE31B9D43B300F0B51E /* Cocohunt-hd.plist */; };
 		92E58BE81B9D43B300F0B51E /* Cocohunt-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E58BE41B9D43B300F0B51E /* Cocohunt-hd.png */; };
+		92E7759E1DCADE09000C937E /* tilemap.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E7759D1DCADE09000C937E /* tilemap.png */; };
+		92E775A21DCAE353000C937E /* tilemap-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E7759F1DCAE353000C937E /* tilemap-hd.png */; };
+		92E775A31DCAE353000C937E /* tilemap-hd.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 92E775A01DCAE353000C937E /* tilemap-hd.tmx */; };
+		92E775A41DCAE353000C937E /* tilemap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 92E775A11DCAE353000C937E /* tilemap.tmx */; };
+		92E775A71DCAE38A000C937E /* tile_level_bg-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E775A51DCAE38A000C937E /* tile_level_bg-hd.png */; };
+		92E775A81DCAE38A000C937E /* tile_level_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 92E775A61DCAE38A000C937E /* tile_level_bg.png */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -595,6 +601,12 @@
 		92E58BE21B9D43B300F0B51E /* Cocohunt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cocohunt.png; sourceTree = "<group>"; };
 		92E58BE31B9D43B300F0B51E /* Cocohunt-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Cocohunt-hd.plist"; sourceTree = "<group>"; };
 		92E58BE41B9D43B300F0B51E /* Cocohunt-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cocohunt-hd.png"; sourceTree = "<group>"; };
+		92E7759D1DCADE09000C937E /* tilemap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilemap.png; sourceTree = "<group>"; };
+		92E7759F1DCAE353000C937E /* tilemap-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tilemap-hd.png"; sourceTree = "<group>"; };
+		92E775A01DCAE353000C937E /* tilemap-hd.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tilemap-hd.tmx"; sourceTree = "<group>"; };
+		92E775A11DCAE353000C937E /* tilemap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tilemap.tmx; sourceTree = "<group>"; };
+		92E775A51DCAE38A000C937E /* tile_level_bg-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_level_bg-hd.png"; sourceTree = "<group>"; };
+		92E775A61DCAE38A000C937E /* tile_level_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_level_bg.png; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -1196,6 +1208,19 @@
 			name = GameObjects;
 			sourceTree = "<group>";
 		};
+		92E775981DCADAFE000C937E /* Tilemap */ = {
+			isa = PBXGroup;
+			children = (
+				92E7759F1DCAE353000C937E /* tilemap-hd.png */,
+				92E775A01DCAE353000C937E /* tilemap-hd.tmx */,
+				92E775A51DCAE38A000C937E /* tile_level_bg-hd.png */,
+				92E775A61DCAE38A000C937E /* tile_level_bg.png */,
+				92E775A11DCAE353000C937E /* tilemap.tmx */,
+				92E7759D1DCADE09000C937E /* tilemap.png */,
+			);
+			name = Tilemap;
+			sourceTree = "<group>";
+		};
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -1282,6 +1307,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92E775981DCADAFE000C937E /* Tilemap */,
 				9208D6081D91571600161602 /* PhysicsLevel */,
 				92BF3FBD1D8CD299001B448A /* Dialogs */,
 				92C3EC611D3E5BC50026BE4D /* LevelSelect */,
@@ -1555,6 +1581,7 @@
 				92896FB31BA6213C000E1810 /* Exploding_Coconut_34-hd.png in Resources */,
 				92896F801BA6213C000E1810 /* Exploding_Coconut_8.png in Resources */,
 				92896FA61BA6213C000E1810 /* Exploding_Coconut_27.png in Resources */,
+				92E775A31DCAE353000C937E /* tilemap-hd.tmx in Resources */,
 				929945341BAF6E690055E975 /* track_1.mp3 in Resources */,
 				92896FC71BA62E40000E1810 /* campfire.png in Resources */,
 				92896FAA1BA6213C000E1810 /* Exploding_Coconut_29.png in Resources */,
@@ -1595,12 +1622,14 @@
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				92896F831BA6213C000E1810 /* Exploding_Coconut_10-hd.png in Resources */,
 				92BF3FEC1D8CD608001B448A /* btn_pause_pressed.png in Resources */,
+				92E775A41DCAE353000C937E /* tilemap.tmx in Resources */,
 				92896F961BA6213C000E1810 /* Exploding_Coconut_19.png in Resources */,
 				92896FA41BA6213C000E1810 /* Exploding_Coconut_26.png in Resources */,
 				92601E001BB105EA00E9E30D /* btn_sound_pressed-hd.png in Resources */,
 				92896F9A1BA6213C000E1810 /* Exploding_Coconut_21.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
+				92E775A21DCAE353000C937E /* tilemap-hd.png in Resources */,
 				92601DEE1BB0F85700E9E30D /* btn_start_pressed.png in Resources */,
 				92BF3FF21D8CD608001B448A /* btn_restart.png in Resources */,
 				92BF3FDF1D8CD608001B448A /* btn_close_pressed-hd.png in Resources */,
@@ -1627,6 +1656,7 @@
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				92AE53E31BA13DC400A885CA /* points.fnt in Resources */,
 				92BF3FEE1D8CD608001B448A /* btn_pause.png in Resources */,
+				92E7759E1DCADE09000C937E /* tilemap.png in Resources */,
 				92896F731BA6213C000E1810 /* Exploding_Coconut_2-hd.png in Resources */,
 				92896F861BA6213C000E1810 /* Exploding_Coconut_11.png in Resources */,
 				92601E021BB105EA00E9E30D /* btn_sound-hd.png in Resources */,
@@ -1662,6 +1692,7 @@
 				92896F931BA6213C000E1810 /* Exploding_Coconut_18-hd.png in Resources */,
 				92BF3FF01D8CD608001B448A /* btn_restart_pressed.png in Resources */,
 				92896F8C1BA6213C000E1810 /* Exploding_Coconut_14.png in Resources */,
+				92E775A81DCAE38A000C937E /* tile_level_bg.png in Resources */,
 				929945271BAF56D60055E975 /* bird_hit.mp3 in Resources */,
 				92E58BC21B9CEFF900F0B51E /* game_scene_bg-iphone5hd.png in Resources */,
 				92A87CEB1BB87585009A4625 /* btn_back_pressed-hd.png in Resources */,
@@ -1682,6 +1713,7 @@
 				92A87CE61BB87585009A4625 /* about_bg.png in Resources */,
 				92AE53E41BA13DC400A885CA /* points.png in Resources */,
 				92896F9B1BA6213C000E1810 /* Exploding_Coconut_22-hd.png in Resources */,
+				92E775A71DCAE38A000C937E /* tile_level_bg-hd.png in Resources */,
 				92BF3FF11D8CD608001B448A /* btn_restart-hd.png in Resources */,
 				92E58BE61B9D43B300F0B51E /* Cocohunt.png in Resources */,
 				92BF3FEB1D8CD608001B448A /* btn_pause_pressed-hd.png in Resources */,
