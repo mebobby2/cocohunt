@@ -41,6 +41,7 @@ Bird *_bird;
     CCSprite *bg = [CCSprite spriteWithImageNamed:@"tile_level_bg.png"];
     bg.positionType = CCPositionTypeNormalized;
     bg.position = ccp(0.5f, 0.5f);
+    bg.scaleX = 1.2f;
     [self addChild:bg z:zOrderBackground];
 }
 
@@ -54,7 +55,9 @@ Bird *_bird;
     CGSize viewSize = [CCDirector sharedDirector].viewSize;
     
     _bird = [[Bird alloc] initWithBirdType:BirdTypeSmall];
-    _bird
+    _bird.flipX = YES;
+    _bird.position = ccp(viewSize.width * 0.2f, viewSize.height * 0.2f);
+    [self addChild:_bird z: zOrderObjects];
 }
 
 @end
