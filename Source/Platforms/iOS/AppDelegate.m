@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "IntroScene.h"
+#import "TilemapScene.h"
 
 @implementation AppController
 
@@ -61,6 +62,7 @@
 
 - (CCScene*) startScene
 {
+    //return [[TilemapScene alloc] init];
     return [[IntroScene alloc] init];
 }
 
